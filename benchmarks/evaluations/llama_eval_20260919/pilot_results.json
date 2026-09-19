@@ -1,0 +1,43 @@
+{
+  "run_name": "llama_pilot_20260919_202223",
+  "model": "Llama-3.2-3B-Instruct",
+  "quantization": "Q4_K_M",
+  "context_size": 8192,
+  "gpu_layers": 20,
+  "passports": [
+    {
+      "passport_id": "a128d7aa-a09a-466d-a703-e77272375589",
+      "qualification_identity": "8448996545b97949e77fd468bf7830f7054f8ade89387dd684bda30ebe88aee0",
+      "deployment_identity": "e7d6f8777de30515cd603c81724768844b2d13462e84b83eed5d5f3a3fb6ad2c",
+      "capability_contract": "DocumentRetrieval_v1",
+      "result_id": "a69db93e-a98c-4f6a-bcb6-064109c4d2f2",
+      "qualification_status": "QUALIFIED",
+      "qualification_timestamp": "2026-09-19T20:22:35.594513Z",
+      "invalidation_info": {},
+      "metadata": {}
+    },
+    {
+      "passport_id": "8727790d-0deb-49c8-b3c9-5a6b135e6284",
+      "qualification_identity": "aa8506c11d5908d45860ae7510fc45c645ae878e34a9b6e22a2efa1910931dc2",
+      "deployment_identity": "e7d6f8777de30515cd603c81724768844b2d13462e84b83eed5d5f3a3fb6ad2c",
+      "capability_contract": "AutomatedCoding_v1",
+      "result_id": "20c1b712-3561-402b-a701-6ae937ff0ff8",
+      "qualification_status": "QUALIFIED",
+      "qualification_timestamp": "2026-09-19T20:22:45.756829Z",
+      "invalidation_info": {},
+      "metadata": {}
+    },
+    {
+      "passport_id": "bcee3d91-65d6-4d72-9491-e409b6cab092",
+      "qualification_identity": "60449a86c18dc60abe0b4fbe456f0927872836459f726396e35fce8a977329d0",
+      "deployment_identity": "e7d6f8777de30515cd603c81724768844b2d13462e84b83eed5d5f3a3fb6ad2c",
+      "capability_contract": "AgentDecision_v1",
+      "result_id": "5b0af8bf-82ed-4c90-a752-853e9b7cc4a0",
+      "qualification_status": "QUALIFIED",
+      "qualification_timestamp": "2026-09-19T20:23:07.590990Z",
+      "invalidation_info": {},
+      "metadata": {}
+    }
+  ],
+  "status": "COMPLETED"
+}

@@ -1,0 +1,20 @@
+{
+  "total_trials": 150,
+  "evaluable_trials": 149,
+  "non_evaluable_trials": 1,
+  "metrics": {
+    "first_captured_submission_passed": 142,
+    "first_captured_submission_passed_percent": 95.3,
+    "final_captured_submission_passed": 146,
+    "final_captured_submission_passed_percent": 98.0,
+    "end_to_end_workflow_success": 0,
+    "end_to_end_workflow_success_percent": 0.0,
+    "first_model_generation_passed": "UNAVAILABLE"
+  },
+  "terminal_reasons_for_workflow_failure": {
+    "Tool call limit exceeded.": 126,
+    "Task marked FINAL without passing independent trusted verification checks.": 22,
+    "Malformed model output: Malformed JSON: Unterminated string starting at: line 1 column 111 (char 110)": 2
+  },
+  "notes": "Recalculated directly from raw results_full.jsonl. 'first_model_generation_passed' is unavailable because the raw dataset does not log step-by-step reasoning outputs, preventing isolation of the very first generation attempt. The 2 'Malformed JSON' failures account for the final 2 missing trials, 1 of which was evaluable based on an earlier turn's output, and 1 which was non-evaluable."
+}

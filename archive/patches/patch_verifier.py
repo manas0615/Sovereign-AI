@@ -1,55 +1,10 @@
-"""Trusted Code Verification Engine.
-
-Provides trusted, independent verification of model-generated code against
-concrete acceptance criteria, separating implementation code from verification logic
-and executing through the governed P04 ExecutionBoundary.
-"""
-
-import ast
-import json
 import re
-import uuid
-from enum import Enum
-from typing import Dict, Any, List, Optional
-from pydantic import BaseModel, Field
 
-from sovereign.infrastructure.tools.execution_boundary import ExecutionBoundary
-from sovereign.infrastructure.tools.workspace import TaskWorkspace
+with open('src/sovereign/core/coding/verifier.py', 'r') as f:
+    content = f.read()
 
-
-class CodeVerificationStatus(str, Enum):
-    GENERATED = "Generated"
-    EXECUTED = "Executed"
-    VERIFICATION_PASSED = "Verification Passed"
-    VERIFICATION_FAILED = "Verification Failed"
-    VERIFICATION_INCONCLUSIVE = "Verification Inconclusive"
-
-
-class VerificationCheckResult(BaseModel):
-    check_name: str
-    passed: bool
-    expected: Optional[str] = None
-    actual: Optional[str] = None
-    error: Optional[str] = None
-
-
-class TrustedVerificationReport(BaseModel):
-    status: CodeVerificationStatus = CodeVerificationStatus.GENERATED
-    total_checks: int = 0
-    passed_checks: int = 0
-    failed_checks: int = 0
-    check_results: List[VerificationCheckResult] = Field(default_factory=list)
-    raw_stdout: str = ""
-    raw_stderr: str = ""
-    execution_exit_code: Optional[int] = None
-    execution_duration_ms: int = 0
-    failure_reason: Optional[str] = None
-
-
-class TrustedCodeVerifier:
-    """Independent verification engine that executes and validates model-generated code."""
-
-    @classmethod
+# Replace verify_submission implementation
+new_verify = '''    @classmethod
     def verify_submission(
         cls,
         code: str,
@@ -93,3 +48,11 @@ class TrustedCodeVerifier:
     def _build_test_harness(cls, code: str, goal_lower: str, report_marker: str, trusted_tests: Optional[str] = None) -> Optional[str]:
         # Legacy harness logic removed because it cannot be securely executed in this architecture.
         return None
+'''
+
+# Use regex to replace everything from     @classmethod\n    def verify_submission( to the end of the file.
+match = re.search(r'    @classmethod\n    def verify_submission\(', content)
+if match:
+    clean_content = content[:match.start()] + new_verify
+    with open('src/sovereign/core/coding/verifier.py', 'w') as f:
+        f.write(clean_content)

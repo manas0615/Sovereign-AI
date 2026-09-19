@@ -172,17 +172,33 @@ class AgentHost:
             # 4. Execute Action
             if decision.action == AgentAction.FINAL:
                 if capability == "AutomatedCoding_v1":
-                    # Check task state items for verified status
+                    # Check task state items for structured verified status
                     current_items = self.repo.get_state_items(task.task_id)
                     verified = False
+                    inconclusive = False
                     for item in reversed(current_items):
-                        if isinstance(item, Finding) and "Trusted Verification Result: [Verification Passed]" in item.statement:
-                            verified = True
+                        if isinstance(item, Finding) and "verification_status" in getattr(item, "metadata", {}):
+                            status_val = item.metadata["verification_status"]
+                            if status_val == "Verification Passed":
+                                verified = True
+                                break
+                            elif status_val == "Verification Inconclusive":
+                                inconclusive = True
+                                break
+                            elif status_val == "Verification Failed":
+                                break
+                            # Any other status is treated as failure. Break to prevent older results from authorising.
                             break
+                        # Spoofable string fallback removed to ensure model-generated text cannot forge success.
                     
                     if verified:
                         task.status = TaskStatus.COMPLETED
                         self.repo.add_state_item(task.task_id, Finding(statement=f"Trusted Verification Confirmed. {decision.answer}", confidence="high"))
+                    elif inconclusive:
+                        # If inconclusive, it's not a success, but we don't treat it as a hard failure 
+                        # that the agent explicitly ignored. It's just unverified.
+                        task.status = TaskStatus.FAILED
+                        self.repo.add_state_item(task.task_id, Decision(rationale="Task marked FINAL but verification was inconclusive. No trusted tests available.", decision="FAIL"))
                     else:
                         task.status = TaskStatus.FAILED
                         self.repo.add_state_item(task.task_id, Decision(rationale="Task marked FINAL without passing independent trusted verification checks.", decision="FAIL"))
@@ -270,7 +286,12 @@ class AgentHost:
                         
                         # Add trusted verification finding
                         v_msg = f"Trusted Verification Result: [{v_report.status.value}] Passed {v_report.passed_checks}/{v_report.total_checks} checks. {v_report.failure_reason or ''}".strip()
-                        self.repo.add_state_item(task.task_id, Finding(statement=v_msg, confidence="high", evidence_refs=[]))
+                        self.repo.add_state_item(task.task_id, Finding(
+                            statement=v_msg, 
+                            confidence="high", 
+                            evidence_refs=[], 
+                            metadata={"verification_status": v_report.status.value}
+                        ))
                         
                         if v_report.status == CodeVerificationStatus.VERIFICATION_FAILED:
                             failed_details = [c.model_dump() for c in v_report.check_results if not c.passed]

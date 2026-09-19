@@ -36,6 +36,7 @@ class StateItemBase(BaseModel):
     item_id: str = Field(default_factory=lambda: f"item-{uuid.uuid4().hex[:8]}")
     priority: Priority = Priority.NORMAL
     evidence_refs: List[str] = Field(default_factory=list)
+    metadata: Dict[str, Any] = Field(default_factory=dict)
     created_at: datetime = Field(default_factory=_now)
     updated_at: datetime = Field(default_factory=_now)
 
