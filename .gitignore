@@ -1,0 +1,48 @@
+﻿# Python virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local databases & state
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+/local_data/
+
+# Environment configuration & secrets
+.env
+.env.local
+.env.*.local
+
+# Model weights
+*.gguf
+*.bin
+*.pt
+*.safetensors
+
+# Runtime logs
+*.log
+/logs/
+
+# Frontend dependencies and build
+frontend/node_modules/
+frontend/dist/
+node_modules/
+dist/
+.cache/
+
+# Local scratch and runtime generated task deliverables
+/artifacts/
+/scratch/
+/backups/
+tracked_files.txt

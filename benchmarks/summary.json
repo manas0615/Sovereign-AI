@@ -1,0 +1,9 @@
+{
+  "total_trials": 150,
+  "model_load_time_s": 0.0,
+  "ground_truth_evaluable": 149,
+  "first_model_generation_passed": 0,
+  "first_captured_submission_passed": 142,
+  "final_captured_submission_passed": 146,
+  "agent_workflow_success": 0
+}
