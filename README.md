@@ -8,11 +8,11 @@
 
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![React 18](https://img.shields.io/badge/React-18-61DAFB.svg?logo=react&logoColor=black)](https://react.dev/)
+[![React 19](https://img.shields.io/badge/React-19-61DAFB.svg?logo=react&logoColor=black)](https://react.dev/)
 [![llama.cpp](https://img.shields.io/badge/Runtime-llama.cpp-orange.svg)](https://github.com/ggerganov/llama.cpp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests Passing](https://img.shields.io/badge/Tests-91%20Passed%20%7C%20100%25-brightgreen.svg)](#testing--verification)
-[![Code Correctness](https://img.shields.io/badge/Benchmark%20Correctness-98.0%25-success.svg)](#-empirical-benchmark-highlights)
+[![Targeted Tests](https://img.shields.io/badge/Targeted%20Tests-91%20Passed%20%7C%203%20Skipped-brightgreen.svg)](#-quick-start)
+[![Benchmark Correctness](https://img.shields.io/badge/Benchmark%20Correctness-98.0%25-success.svg)](#-empirical-benchmark-highlights)
 
 [**Executive Overview**](#-executive-overview) •
 [**Core Innovation**](#-core-technical-innovation) •
@@ -28,20 +28,20 @@
 
 ## ?? Executive Overview
 
-**Sovereign AI** is an on-premise, model-agnostic agentic AI workbench built for confidential industrial sectors—including public sector undertakings (PSUs), defence manufacturing, refineries, thermal power stations, and critical national infrastructure.
+**Sovereign AI** is an on-premise, model-agnostic agentic AI workbench designed for confidential industrial sectors—including public sector undertakings (PSUs), defence manufacturing, refineries, thermal power stations, and critical national infrastructure.
 
-In these mission-critical domains, proprietary intellectual property (piping and instrumentation diagrams, equipment ultrasonic inspection reports, process safety manuals, SCADA telemetry logs, and standard operating procedures) cannot leave the enterprise perimeter due to strict data residency laws and national security mandates.
+In these mission-critical domains, proprietary intellectual property (piping and instrumentation diagrams, equipment ultrasonic inspection reports, process safety manuals, SCADA telemetry logs, and standard operating procedures) cannot leave the enterprise perimeter due to strict data residency laws and security mandates.
 
 ```
 Traditional Cloud AI Workflows:
-Sensitive Enterprise Data  --?  Public Cloud API  --?  Third-Party Infrastructure (High Breach Risk)
+Sensitive Enterprise Data  --?  Public Cloud API  --?  Third-Party Infrastructure (High Data Exposure Risk)
 
 Sovereign AI Architecture:
-Sensitive Enterprise Data  --?  Local Host Sandbox  --?  Local Quantized Models (Zero Cloud Exfiltration)
+Sensitive Enterprise Data  --?  Local Host Execution  --?  Local Quantized Models (Zero Cloud Exfiltration)
 ```
 
 Sovereign AI brings sovereign, governed AI execution directly to standard enterprise Windows workstations:
-* ?? **Zero Data Exfiltration:** Complete in-boundary execution over localhost loopback with zero external WAN socket dependencies.
+* ?? **Local Host Execution:** In-boundary execution over localhost loopback; observed socket audits confirm zero external WAN socket connections during runtime operations.
 * ? **High-Performance Local Runtime:** Native `llama.cpp` inference powering quantized open-weight models (`Llama-3.2`, `Qwen2.5`, `DeepSeek-R1-Distill`) with GPU offloading and sequential model swapping.
 * ?? **The Governance Triad:** Replaces uncalibrated model trust with empirical evaluation. Models are strictly gated by verified **Capability Passports** before being granted tool execution permits.
 * ?? **Local Hybrid Knowledge Engine:** Ingests technical manuals and scanned inspection sheets using SQLite FTS5 BM25 lexical search, ChromaDB dense embeddings, and a local OCR pipeline.
@@ -118,7 +118,7 @@ flowchart LR
 | **Persistent Task State** | ACID-compliant SQLite durable state ledger with automatic rollback and restart recovery. | **Implemented & Demonstrated** |
 | **Verifiable Artifacts** | Programmatic generator for `.docx`, `.xlsx`, `.pptx`, and `.pdf` with SHA-256 byte proofs. | **Implemented & Demonstrated** |
 | **Fail-Closed Governance** | Inconclusive verifications prevent task completion; unallowlisted tools rejected. | **Implemented & Evaluated** |
-| **Zero WAN Dependency** | Full loopback socket binding (`127.0.0.1`) verified via continuous socket auditing. | **Demonstrated & Audited** |
+| **Observed Loopback Confinement** | Monitored process-level socket bindings confirm communication over localhost (`127.0.0.1`). | **Demonstrated & Audited** |
 
 ---
 
@@ -128,7 +128,7 @@ Sovereign AI follows a strict frozen package architecture (**P00–P09**) where ev
 
 ```mermaid
 flowchart TD
-    subgraph UI["P09 — Sovereign UI (React 18 + TypeScript)"]
+    subgraph UI["P09 — Sovereign UI (React 19 + TypeScript)"]
         Chat["Assistant Chat"]
         Studio["Coding Studio"]
         Docs["Knowledge Library"]
@@ -155,7 +155,7 @@ flowchart TD
 
     subgraph Execution["P04 — Governed Tools & Execution"]
         Executor["Tool Executor"]
-        Sandbox["Restricted Execution Boundary"]
+        Boundary["Restricted Execution Boundary"]
         Verifier["TrustedCodeVerifier"]
     end
 
@@ -257,7 +257,7 @@ stateDiagram-v2
 
 ## ?? Empirical Benchmark Highlights
 
-Sovereign AI's local model capabilities were rigorously evaluated against a comprehensive benchmark suite consisting of **50 diverse industrial and algorithmic tasks across 150 trials** using the locally hosted `Llama-3.2-3B-Instruct` deployment:
+Sovereign AI's local model capabilities were evaluated against a benchmark suite consisting of **50 diverse industrial and algorithmic tasks across 150 trials** using the locally hosted `Llama-3.2-3B-Instruct` deployment:
 
 <div align="center">
 
@@ -265,8 +265,8 @@ Sovereign AI's local model capabilities were rigorously evaluated against a comp
 | :--- | :---: | :--- |
 | **Total Test Trials** | **150** | 50 Industrial Tasks $\times$ 3 Independent Trials |
 | **Evaluable Submissions** | **149 / 150 (99.3%)** | Well-formed JSON & extractable Python scripts |
-| **First Captured Submission Correctness** | **95.3%** | **142 / 149** submissions passed all hidden assertions on Turn 1 |
-| **Final Captured Submission Correctness** | **98.0%** | **146 / 149** submissions passed all hidden assertions |
+| **First Captured Submission Correctness** | **95.3%** | **142 / 149** evaluable submissions passed independent hidden assertions on Turn 1 |
+| **Final Captured Submission Correctness** | **98.0%** | **146 / 149** evaluable submissions passed independent hidden assertions |
 | **Hardware Footprint (VRAM)** | **2115 MiB** | Peak system-observed VRAM during active inference |
 
 </div>
@@ -274,39 +274,30 @@ Sovereign AI's local model capabilities were rigorously evaluated against a comp
 ```mermaid
 xychart-beta
     title "Benchmark Submission Correctness (149 Evaluable Trials)"
-    x-axis ["First Captured Submission", "Final Captured Submission"]
+    x-axis ["First Captured Submission Correctness", "Final Captured Submission Correctness"]
     y-axis "Passed Test Cases (%)" 0 --> 100
     bar [95.3, 98.0]
 ```
 
-> **Evaluation Methodology Note:** The benchmark evaluates code correctness by capturing generated Python submissions and executing them against isolated offline test harnesses with hidden acceptance criteria. For full trial-level breakdowns, error distributions, and methodology details, see the [Formal Evaluation Report](benchmarks/evaluations/llama_eval_20260919/evaluation_report.md) and [Benchmark Methodology Specification](docs/evaluation/BENCHMARK_METHODOLOGY.md).
+> **Evaluation Methodology Note:** These metrics measure the algorithmic correctness of captured Python code submissions evaluated independently against hidden test cases. They do not represent end-to-end agent workflow success or general model capabilities. For full trial-level breakdowns, terminal failure reasons, and complete methodology details, see the [Formal Evaluation Report](benchmarks/evaluations/llama_eval_20260919/evaluation_report.md) and [Benchmark Methodology Specification](docs/evaluation/BENCHMARK_METHODOLOGY.md).
 
 ---
 
 ## ??? Model Qualification Showcase
 
-Under the Phase 3 empirical qualification protocol, the locally hosted `Llama-3.2-3B-Instruct` (Q4_K_M, 8192 context, Vulkan backend) earned verified Capability Passports across three core capability contracts:
+Under the Phase 3 empirical qualification protocol, the locally hosted `Llama-3.2-3B-Instruct` (Q4_K_M, 8192 context, Vulkan backend) was evaluated against specific schema-validation capability contracts:
 
-```mermaid
-flowchart TD
-    subgraph Model["Deployment: Llama-3.2-3B-Instruct Q4_K_M"]
-        M1["Vulkan1 Hardware Profile"]
-        M2["8192 Context Budget"]
-    end
+<div align="center">
 
-    subgraph Passports["Issued Capability Passports (P08)"]
-        P1["<b>DocumentRetrieval_v1</b><br/>Status: QUALIFIED<br/>Passport: a128d7aa..."]
-        P2["<b>AutomatedCoding_v1</b><br/>Status: QUALIFIED<br/>Passport: 8727790d..."]
-        P3["<b>AgentDecision_v1</b><br/>Status: QUALIFIED<br/>Passport: bcee3d91..."]
-    end
+| Capability Contract | Version | Test Case | Target Evaluation Scope | Qualification Status |
+| :--- | :---: | :---: | :--- | :---: |
+| **`DocumentRetrieval_v1`** | `1.0` | `t_doc` | Structured retrieval JSON action formatting | **QUALIFIED** |
+| **`AutomatedCoding_v1`** | `1.0` | `t_code` | Structured code execution JSON action formatting | **QUALIFIED** |
+| **`AgentDecision_v1`** | `1.0` | `t_doc`\* | Multi-action JSON envelope formatting adherence | **QUALIFIED** |
 
-    Model --> P1
-    Model --> P2
-    Model --> P3
+</div>
 
-    classDef pass fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px;
-    class P1,P2,P3 pass;
-```
+*\* **Qualification Scope Note:** Passports are qualification evidence, not static authority tokens. In this pilot, `AgentDecision_v1` reproduced the original harness test case (`t_doc`) to verify JSON envelope formatting; it does not measure multi-step agentic planning.*
 
 ---
 
@@ -331,7 +322,7 @@ evidence/artifacts/
 ```mermaid
 flowchart LR
     subgraph Frontend["Frontend Layer"]
-        R["React 18"]
+        R["React 19"]
         TS["TypeScript"]
         V["Vite"]
         TW["TailwindCSS"]
@@ -383,7 +374,7 @@ Sovereign-AI/
 ¦   +-- application/             # FastAPI REST / SSE routes & request schemas
 ¦   +-- infrastructure/          # llama.cpp adapter, SQLite repositories, document parsers, renderers
 ¦
-+-- frontend/                    # React 18 + TypeScript single-page application (P09)
++-- frontend/                    # React 19 + TypeScript single-page application (P09)
 ¦   +-- src/                     # Workspaces: Chat, Coding, Knowledge, Artifacts, Tasks, Passports
 ¦
 +-- benchmarks/                  # Evaluation suites and empirical qualification data
@@ -405,6 +396,9 @@ Sovereign-AI/
 ¦   +-- screenshots/             # 10 baseline UI workflow screenshots
 ¦   +-- logs/                    # Automated test logs and network socket audits
 ¦   +-- EVIDENCE_INDEX.md        # Master evidence index
+¦
++-- archive/                     # Historical experiments and archived scratch scripts
+¦   +-- patches/                 # Archived developer patch scripts
 ¦
 +-- scripts/                     # Operational, diagnostic, and setup scripts
 +-- tests/                       # Automated Pytest suite (Unit, integration, governance tests)
@@ -461,8 +455,8 @@ npm run dev
 ### 4. Run Automated Test Suite
 
 ```powershell
-# Execute core test suite (91 unit & governance tests)
-pytest tests/ -v
+# Execute targeted test suite (91 passing unit, governance, and routing tests)
+pytest tests/test_agent_host.py tests/test_agent_parser.py tests/test_context_manager.py tests/test_p04_restricted_execution.py tests/test_p05_qualification_routing.py tests/test_p07_l2_api.py tests/test_p08_qualification.py tests/test_qualification_persistence.py tests/test_state.py tests/test_tools.py tests/test_trusted_coding_verification.py -v
 ```
 
 ---

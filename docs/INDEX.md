@@ -18,7 +18,7 @@ The architectural baseline is partitioned across 10 formal package specification
 | **P04** | [SAI-DOC-008](architecture/tool-execution-and-sandbox.md) | Governed Tool Execution | Restricted execution boundary, path confinement, timeout enforcement, sanitized env. |
 | **P05** | [SAI-DOC-009](architecture/agent-host-and-orchestration.md) | Agent Host & Orchestration | ReAct execution loop, task characterization, capability routing, verification gating. |
 | **P06** | [SAI-DOC-010](architecture/artifact-engine-and-verification.md) | Artifact Engine & Verification | Multi-format business document generation (DOCX, XLSX, PPTX, PDF) with SHA-256 proofs. |
-| **P07** | [SAI-DOC-011](architecture/ui-api-and-user-workspace.md) | API & User Workspace | FastAPI REST / SSE endpoints, React 18 TypeScript workspace, WebSocket streaming. |
+| **P07** | [SAI-DOC-011](architecture/ui-api-and-user-workspace.md) | API & User Workspace | FastAPI REST / SSE endpoints, React 19 TypeScript workspace, WebSocket streaming. |
 | **P08** | [SAI-DOC-003](architecture/security-and-sovereignty.md) | Security & Sovereignty | In-process isolation, zero WAN socket binding, threat vectors, authority evaluator. |
 | **P08** | [SAI-DOC-004](architecture/testing-validation-and-demo-protocol.md) | Testing & Validation Protocol | 177-test verification protocol, benchmark criteria, negative test gates. |
 | **P08** | [SAI-DOC-012](architecture/INNOVATION_MOON_AUDIT.md) | Moonshot Innovation Audit | Technical breakdown of the Governance Triad and deployment-capability identities. |
