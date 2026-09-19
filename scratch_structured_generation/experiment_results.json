@@ -1,0 +1,774 @@
+[
+  {
+    "Model": "Llama-3.2-3B",
+    "Mode": "A_BASELINE",
+    "JSON_Valid": 6,
+    "AD_Valid": 0,
+    "Avg_Latency": 1.874295751253764,
+    "Failures": [
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'result': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "RETRIEVE",
+        "```\n{\n  \"result\": {\n    \"Q3 revenue\": \"38.5 billion USD\"\n  }\n}\n```"
+      ],
+      [
+        "RETRIEVE",
+        "```\n{\n  \"Q3 revenue\": {\n    \"result\": \"The Q3 revenue for the company was $1.2 billion, a 12% increase from the same period last year.\"\n  }\n}\n```"
+      ],
+      [
+        "RETRIEVE",
+        "```\n{\n  \"result\": {\n    \"Q3 revenue\": {\n      \"amount\": 250000000,\n      \"quarter\": \"3rd\",\n      \"year\": 2022\n    }\n  }\n}\n```"
+      ],
+      [
+        "TOOL",
+        "```json\n{\n  \"status\": \"success\",\n  \"message\": \"Current time: 13:43:00\",\n  \"local_time\": \"13:43:00\"\n}\n```"
+      ],
+      [
+        "TOOL",
+        "```json\n{\n  \"time\": \"12:00 PM\",\n  \"location\": \"New York\",\n  \"weather\": \"Sunny\",\n  \"temperature\": 75\n}\n```"
+      ],
+      [
+        "TOOL",
+        "```json\n{\n  \"current_time\": \"2023-12-31 14:30:00\",\n  \"day_of_week\": \"Saturday\",\n  \"day_of_month\": 31,\n  \"month\": \"December\",\n  \"year\": 2023\n}\n```"
+      ],
+      [
+        "CLARIFY",
+        "```json\n{\n  \"action\": \"ask\",\n  \"question\": \"Who is the email for?\"\n}\n```"
+      ],
+      [
+        "CLARIFY",
+        "```json\n{\n  \"action\": \"ask\",\n  \"prompt\": \"Who is the email for?\",\n  \"output\": null\n}\n```"
+      ],
+      [
+        "CLARIFY",
+        "```\n{\n  \"input\": \"Who is the email for?\",\n  \"user_input\": null,\n  \"response\": null\n}\n```"
+      ],
+      [
+        "CONTINUE",
+        "```\n{\n  \"decision\": null,\n  \"reasoning\": null\n}\n```"
+      ],
+      [
+        "CONTINUE",
+        "```\n{\n  \"decision_status\": \"pending\",\n  \"thought_process\": \"considering the problem without taking external action\",\n  \"next_step\": \"continue analyzing the problem internally\"\n}\n```"
+      ],
+      [
+        "CONTINUE",
+        "```\n{\n  \"status\": \"idle\",\n  \"thought_process\": \"analyzing the problem without external input\",\n  \"decision\": null\n}\n```"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "```json\n{\n  \"local_time\": \"2023-12-31 23:59:59\",\n  \"metadata\": \"extra\"\n}\n```"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "```json\n{\n  \"local_time\": \"2023-12-31 14:30:00\",\n  \"metadata\": \"extra\"\n}\n```"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "```\n{\n  \"time\": \"local_time\",\n  \"metadata\": \"extra\"\n}\n```"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "```\n{\n  \"tool\": \"local_time\"\n}\n```"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "```json\n{\n  \"tool\": \"local_time\"\n}\n```"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "```json\n{\n  \"tool\": \"local_time\"\n}\n```"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\naction\n  Input should be 'FINAL', 'RETRIEVE', 'TOOL', 'CLARIFY' or 'CONTINUE' [type=enum, input_value='redirect', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'decision': {'action': '...'user query not found'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'finalAction': 'redirect...for further assistance'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "```\n{\n  \"action\": \"CONTINUE\",\n  \"rationale\": null\n}\n```"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "```\n{\n  \"action\": \"CONTINUE\",\n  \"reason\": \"No additional information is required for this action.\"\n}\n```"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "```\n{\n  \"action\": \"CONTINUE\",\n  \"rationale\": null\n}\n```"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "Here is the JSON:\n{\n  \"action\": \"RETRIEVE\",\n  \"key\": \"capital\",\n  \"result\": \"Washington D.C.\"\n}"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "Here is the JSON:\n{\n  \"action\": \"RETRIEVE\",\n  \"key\": \"capital\",\n  \"result\": \"Washington D.C.\"\n}"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "Here is the JSON:\n{\n  \"action\": \"RETRIEVE\",\n  \"key\": \"capital\",\n  \"result\": \"Washington D.C.\"\n}"
+      ]
+    ]
+  },
+  {
+    "Model": "Llama-3.2-3B",
+    "Mode": "B_JSON_MODE",
+    "JSON_Valid": 7,
+    "AD_Valid": 0,
+    "Avg_Latency": 2.0093773047129315,
+    "Failures": [
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "RETRIEVE",
+        "```\n{\n  \"result\": {\n    \"Q3 revenue\": {\n      \"amount\": 250000000,\n      \"quarter\": \"Third\",\n      \"year\": 2022\n    }\n  }\n}\n```"
+      ],
+      [
+        "RETRIEVE",
+        "```\n{\n  \"result\": {\n    \"Q3 revenue\": {\n      \"amount\": 85000000,\n      \"quarter\": \"3rd\",\n      \"year\": 2022\n    }\n  }\n}\n```"
+      ],
+      [
+        "RETRIEVE",
+        "```\n{\n  \"result\": {\n    \"Q3 Revenue\": {\n      \"amount\": 85000000,\n      \"period\": \"Third Quarter\",\n      \"year\": 2022\n    }\n  }\n}\n```"
+      ],
+      [
+        "TOOL",
+        "```json\n{\n  \"status\": \"success\",\n  \"message\": \"Current time is not available as I'm a text-based AI agent. However, I can suggest ways to find the current time.\",\n  \"current_time\": null\n}\n```"
+      ],
+      [
+        "TOOL",
+        "```\n{\n  \"local_time\": \"09:47:34\"\n}\n```"
+      ],
+      [
+        "TOOL",
+        "```json\n{\n  \"message\": \"The current local time is not available.\",\n  \"execution_time\": 0\n}\n```"
+      ],
+      [
+        "CLARIFY",
+        "```json\n{\n  \"question\": \"Who is the email for?\",\n  \"response\": null,\n  \"next_step\": null\n}\n```\n\nPlease respond with the user's name."
+      ],
+      [
+        "CLARIFY",
+        "```json\n{\n  \"action\": \"ask\",\n  \"question\": \"Who is the email for?\",\n  \"context\": null\n}\n```"
+      ],
+      [
+        "CLARIFY",
+        "```json\n{\n  \"response\": \"Who is the email for?\",\n  \"input_type\": \"text\",\n  \"user_input\": null\n}\n```\n\nPlease respond with the intended recipient's name or any other relevant information."
+      ],
+      [
+        "CONTINUE",
+        "```\n{\n  \"decision\": null,\n  \"rationale\": null\n}\n```"
+      ],
+      [
+        "CONTINUE",
+        "```\n{\n  \"status\": \"thought\",\n  \"decision\": null,\n  \"reasoning\": \"Awaiting external input or context to provide a decision.\"\n}\n```"
+      ],
+      [
+        "CONTINUE",
+        "```\n{\n  \"status\": \"idle\",\n  \"decision\": \"awaiting input\",\n  \"thoughts\": \"Considering the problem without taking external action.\"\n}\n```"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "```\n{\n  \"local_time\": \"2023-12-31 23:59:59\",\n  \"metadata\": \"extra\"\n}\n```"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "```\n{\n  \"local_time\": \"2023-12-31 14:30:00\",\n  \"metadata\": \"extra\"\n}\n```"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "```json\n{\n  \"local_time\": \"2023-12-31 23:59:59\",\n  \"metadata\": \"extra\"\n}\n```"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "```json\n{\n  \"tool\": \"local_time\"\n}\n```"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "```json\n{\n  \"tool\": \"local_time\"\n}\n```"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\naction\n  Input should be 'FINAL', 'RETRIEVE', 'TOOL', 'CLARIFY' or 'CONTINUE' [type=enum, input_value='redirect', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\naction\n  Input should be 'FINAL', 'RETRIEVE', 'TOOL', 'CLARIFY' or 'CONTINUE' [type=enum, input_value='redirect', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\naction\n  Input should be 'FINAL', 'RETRIEVE', 'TOOL', 'CLARIFY' or 'CONTINUE' [type=enum, input_value='output a final action', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "```\n{\n  \"action\": \"CONTINUE\",\n  \"reason\": \"No specific reason to stop the process.\"\n}\n```"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "```\n{\n  \"action\": \"CONTINUE\",\n  \"reason\": \"No specific reason to stop the process\"\n}\n```"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "```\n{\n  \"action\": \"CONTINUE\",\n  \"reason\": \"No specific reason to stop the process.\",\n  \"context\": null\n}\n```"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "Here is the JSON:\n{\n  \"action\": \"RETRIEVE\",\n  \"key\": \"capital\",\n  \"result\": null\n}"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "Here is the JSON:\n{\n  \"action\": \"RETRIEVE\",\n  \"key\": \"capital\",\n  \"result\": null\n}"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "Here is the JSON:\n{\n  \"action\": \"RETRIEVE\",\n  \"key\": \"capital\",\n  \"result\": \"Washington D.C.\"\n}"
+      ]
+    ]
+  },
+  {
+    "Model": "Llama-3.2-3B",
+    "Mode": "C_JSON_SCHEMA",
+    "JSON_Valid": 30,
+    "AD_Valid": 4,
+    "Avg_Latency": 2.3513516505559284,
+    "Failures": [
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL', 'deci...l time is: 03:47:56 PM'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'd...ther': 'Partly Cloudy'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'p...'Who is the email for?'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\n  Value error, action=CLARIFY requires a 'question'. [type=value_error, input_value={'action': 'CLARIFY', 'in...WAIT_FOR_USER_RESPONSE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'i...Who is the email for?'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'd... None, 'decision': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'd...', 'status': 'INACTIVE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'data': 'NOT AVAILABLE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'l...dditional information'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...e', 'metadata': 'extra'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'l...0', 'metadata': 'extra'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL', 'deci...esult': 'Decision made'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL', 'tool...esult': 'Not Available'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...s': None, 'error': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'rationale': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'r...on to stop the process'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'r...ason to stop execution'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'k...lue': 'Washington D.C.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'subject': 'capital'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'k...ult': 'Washington D.C.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ]
+    ]
+  },
+  {
+    "Model": "Llama-3.2-3B",
+    "Mode": "D_STRICT_SCHEMA",
+    "JSON_Valid": 30,
+    "AD_Valid": 29,
+    "Avg_Latency": 2.436305125554403,
+    "Failures": [
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'rationale': ''}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ]
+    ]
+  },
+  {
+    "Model": "Qwen2.5-3B",
+    "Mode": "A_BASELINE",
+    "JSON_Valid": 27,
+    "AD_Valid": 3,
+    "Avg_Latency": 0.9222750027974447,
+    "Failures": [
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "RETRIEVE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'query': 'Q3 revenue'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "RETRIEVE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'decision': \"Querying th...base for 'Q3 revenue'.\"}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "RETRIEVE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'query': 'Q3 revenue'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time', 'r...rent local time here].'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time', 'r...'2024-01-05T12:00:00Z'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time', 'r... [current local time].'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Who is the email for?'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'json': {'answer': 'Who is the email for?'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'json': {'answer': 'Who is the email for?'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'decision': 'No external...decisions can be made.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'decision': 'No external... and understood first.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'decision': 'No external...iate course of action.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "{\n  \"tool_output\": {\n    \"time\": \"14:30\"  # This is a placeholder for actual local time\n  },\n  \"metadata\": \"extra\"\n}"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "{\n  \"time\": \"14:30\",  # This is a placeholder for the actual local time\n  \"metadata\": \"extra\"\n}"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "{\n  \"time\": \"2023-11-28T14:30:00\",  # Example time, actual time will be fetched by the tool\n  \"metadata\": \"extra\"\n}"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\naction\n  Input should be 'FINAL', 'RETRIEVE', 'TOOL', 'CLARIFY' or 'CONTINUE' [type=enum, input_value='Review the decision agai...tion before finalizing.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ]
+    ]
+  },
+  {
+    "Model": "Qwen2.5-3B",
+    "Mode": "B_JSON_MODE",
+    "JSON_Valid": 29,
+    "AD_Valid": 3,
+    "Avg_Latency": 0.9051508029301961,
+    "Failures": [
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "RETRIEVE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'query': 'Q3 revenue'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "RETRIEVE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'response': \"I'm sorry, ... for this information.\"}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "RETRIEVE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'query': 'Q3 revenue'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time', 'r... [Current Local Time].'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time', 'r...ime is [current time].'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'result': 'The current l...', 'tool': 'local_time'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'answer': 'Who is the email for?'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'json': {'decision': \"As...ho is the email for?'\"}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'json': {'decision': \"As...ho is the email for?'\"}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'decision': 'No external...iate action is needed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'decision': 'Pending'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'thought_process': 'Unde...', 'status': 'thinking'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "{\n  \"time\": \"2023-11-28T14:30:00\",  # Example time, will be replaced by actual local time\n  \"metadata\": \"extra\"\n}"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'time': '2023-11-28T14:5...Z', 'metadata': 'extra'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'time': 'TBD', 'metadata': 'extra'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\naction\n  Field required [type=missing, input_value={'tool': 'local_time'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\naction\n  Input should be 'FINAL', 'RETRIEVE', 'TOOL', 'CLARIFY' or 'CONTINUE' [type=enum, input_value='Final decision made, awa...ng further instructions', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/enum"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ]
+    ]
+  },
+  {
+    "Model": "Qwen2.5-3B",
+    "Mode": "C_JSON_SCHEMA",
+    "JSON_Valid": 30,
+    "AD_Valid": 2,
+    "Avg_Latency": 1.4193912506103517,
+    "Failures": [
+      [
+        "FINAL",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL', 'result': 'Paris'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "RETRIEVE",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...revenue', 'context': ''}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "RETRIEVE",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...revenue', 'details': {}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "RETRIEVE",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...urce': 'KNOWLEDGE_BASE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...time', 'parameters': {}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...time', 'parameters': {}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "TOOL",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...time', 'parameters': {}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\n  Value error, action=TOOL requires a 'tool_name'. [type=value_error, input_value={'action': 'TOOL', 'tool_...ho is the email for?'}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\n  Value error, action=TOOL requires a 'tool_name'. [type=value_error, input_value={'action': 'TOOL', 'tool_... who is the email for.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CLARIFY",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'm...'Who is the email for?'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'r...ent state is CONTINUE.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'r...ating any new actions.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "CONTINUE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'r...t no action is needed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...a': {'extra': 'extra'}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...a': {'extra': 'extra'}}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_EXTRA_PROPS",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...adata': {'extra': True}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'p... {'tool': 'local_time'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 'p... {'tool': 'local_time'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_WRONG_TOOL_KEY",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 't..._name_override': 'tool'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...': {'function': 'json'}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...g': 'Here is the JSON:'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_NATURAL_LANG",
+        "1 validation error for AgentDecision\n  Value error, action=RETRIEVE requires a 'query'. [type=value_error, input_value={'action': 'RETRIEVE', 't...ital', 'parameters': {}}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ]
+    ]
+  },
+  {
+    "Model": "Qwen2.5-3B",
+    "Mode": "D_STRICT_SCHEMA",
+    "JSON_Valid": 30,
+    "AD_Valid": 24,
+    "Avg_Latency": 1.6648773352305095,
+    "Failures": [
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL', 'answer': ''}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL', 'answer': ''}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_ANSWER",
+        "1 validation error for AgentDecision\n  Value error, action=FINAL requires an 'answer'. [type=value_error, input_value={'action': 'FINAL', 'answer': ''}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'rationale': ''}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'rationale': ''}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ],
+      [
+        "ADV_MISSING_RATIONALE",
+        "1 validation error for AgentDecision\n  Value error, action=CONTINUE requires a 'rationale' to define its purpose. [type=value_error, input_value={'action': 'CONTINUE', 'rationale': ''}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+      ]
+    ]
+  }
+]

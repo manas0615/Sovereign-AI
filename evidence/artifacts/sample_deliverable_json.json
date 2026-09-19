@@ -1,0 +1,29 @@
+{
+  "task_id": "task-c3f32666",
+  "title": "V-204 Equipment Integrity Evaluation",
+  "goal": "Evaluate mechanical seal wear against plant safety limits",
+  "task_status": "COMPLETED",
+  "generated_at": "2026-09-18T04:45:46.232237",
+  "findings": [
+    {
+      "statement": "Equipment V-204 seal wear measured at 0.18mm, exceeding 0.10mm limit by +0.08mm (+80%).",
+      "confidence": "high",
+      "sources": [
+        {
+          "source_id": "v204_scanned_inspection.pdf",
+          "locator": "Page 1",
+          "metadata": {
+            "chunk_id": "chk-001"
+          }
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "Mandatory replacement of mechanical seal cartridge before re-pressurization",
+      "rationale": "Exceeds allowable tolerance per SOP-PV-001 Section 4.2"
+    }
+  ],
+  "questions": []
+}

@@ -1,0 +1,189 @@
+[
+  {
+    "id": "T01_SIMPLE_VALID",
+    "latency": 11.462541580200195,
+    "raw": "{\"action\": \"TOOL\", \"tool_name\": \"MATH\", \"data\": {\"question\": \"2+2\", \"expected_result\": \"4\"}}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 34
+    }
+  },
+  {
+    "id": "T02_MULTI_STEP",
+    "latency": 2.1016783714294434,
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"The task is to analyze the data, summarize it, and generate a report.\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 96,
+      "completion_tokens": 28
+    }
+  },
+  {
+    "id": "T03_EVIDENCE",
+    "latency": 1.6450612545013428,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"temperature sensor baseline in inspection report\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 92,
+      "completion_tokens": 21
+    }
+  },
+  {
+    "id": "T04_TOOL_SELECTION",
+    "latency": 1.49245285987854,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"/tmp/sensor.csv\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 91,
+      "completion_tokens": 19
+    }
+  },
+  {
+    "id": "T05_AMBIGUOUS",
+    "latency": 1.9330768585205078,
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"I am not able to determine what needs to be fixed.\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 85,
+      "completion_tokens": 24
+    }
+  },
+  {
+    "id": "T06_ADVERSARIAL",
+    "latency": 1.4034500122070312,
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"BINGO\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 93,
+      "completion_tokens": 15
+    }
+  },
+  {
+    "id": "T07_LONG_CONTEXT",
+    "latency": 17.861647605895996,
+    "raw": "{\n  \"action\": \"FINAL\",\n  \"answer\": \"No errors were found in the log.\",\n  \"error\": null\n}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 3592,
+      "completion_tokens": 29
+    }
+  },
+  {
+    "id": "T08_REPEATED_01",
+    "latency": 1.7968647480010986,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 18
+    }
+  },
+  {
+    "id": "T08_REPEATED_02",
+    "latency": 1.5037808418273926,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\", \"metadata\": {}}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 23
+    }
+  },
+  {
+    "id": "T08_REPEATED_03",
+    "latency": 1.5465190410614014,
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Capital of France\"\n}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 22
+    }
+  },
+  {
+    "id": "T08_REPEATED_04",
+    "latency": 1.7315311431884766,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"Capital of France\", \"context\": \"{}\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 23
+    }
+  },
+  {
+    "id": "T08_REPEATED_05",
+    "latency": 1.733750581741333,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\", \"context\": \"{}\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 23
+    }
+  },
+  {
+    "id": "T08_REPEATED_06",
+    "latency": 1.682011365890503,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\", \"context\": \"{}\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 23
+    }
+  },
+  {
+    "id": "T08_REPEATED_07",
+    "latency": 1.365567684173584,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 18
+    }
+  },
+  {
+    "id": "T08_REPEATED_08",
+    "latency": 1.8031318187713623,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\", \"result\": \"Paris\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 24
+    }
+  },
+  {
+    "id": "T08_REPEATED_09",
+    "latency": 1.7766096591949463,
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\", \"result\": \"Paris\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 24
+    }
+  },
+  {
+    "id": "T08_REPEATED_10",
+    "latency": 1.8812334537506104,
+    "raw": "{\"action\": \"CLARIFY\", \"question\": \"What is the capital of France?\", \"context\": \"{}\"}",
+    "class": "NATIVE_PASS",
+    "error": "",
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 25
+    }
+  }
+]

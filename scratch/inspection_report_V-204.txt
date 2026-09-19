@@ -1,0 +1,8 @@
+INSPECTION REPORT
+Equipment ID: V-204
+Date: 2026-09-13
+Observed condition: Critical seal wear detected on main flange.
+Measurement: 0.15mm clearance
+Threshold: 0.10mm max
+Finding: Fails safety tolerance.
+Recommended action: Replace main flange seal immediately before resuming operation.

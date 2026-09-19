@@ -1,0 +1,371 @@
+[
+  {
+    "timestamp": "2026-09-18T05:58:34.379490Z",
+    "connections": [
+      {
+        "pid": 4924,
+        "process": "node.exe",
+        "laddr": "::1:5173",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61326",
+        "raddr": "127.0.0.1:61327",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61327",
+        "raddr": "127.0.0.1:61326",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 9496,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11240,
+        "process": "llama-server.exe",
+        "laddr": "127.0.0.1:8080",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11536,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 14720,
+        "process": "llama-server.exe",
+        "laddr": "127.0.0.1:8080",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61280",
+        "raddr": "127.0.0.1:61279",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61279",
+        "raddr": "127.0.0.1:61280",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-18T05:58:36.451126Z",
+    "connections": [
+      {
+        "pid": 4924,
+        "process": "node.exe",
+        "laddr": "::1:5173",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61326",
+        "raddr": "127.0.0.1:61327",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61327",
+        "raddr": "127.0.0.1:61326",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 9496,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11240,
+        "process": "llama-server.exe",
+        "laddr": "127.0.0.1:8080",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11536,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 14720,
+        "process": "llama-server.exe",
+        "laddr": "127.0.0.1:8080",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61280",
+        "raddr": "127.0.0.1:61279",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61279",
+        "raddr": "127.0.0.1:61280",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-18T05:58:38.507611Z",
+    "connections": [
+      {
+        "pid": 4924,
+        "process": "node.exe",
+        "laddr": "::1:5173",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61326",
+        "raddr": "127.0.0.1:61327",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61327",
+        "raddr": "127.0.0.1:61326",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 9496,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11240,
+        "process": "llama-server.exe",
+        "laddr": "127.0.0.1:8080",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11536,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 14720,
+        "process": "llama-server.exe",
+        "laddr": "127.0.0.1:8080",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61280",
+        "raddr": "127.0.0.1:61279",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61279",
+        "raddr": "127.0.0.1:61280",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-18T05:58:40.597077Z",
+    "connections": [
+      {
+        "pid": 4924,
+        "process": "node.exe",
+        "laddr": "::1:5173",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61326",
+        "raddr": "127.0.0.1:61327",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61327",
+        "raddr": "127.0.0.1:61326",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 9496,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11240,
+        "process": "llama-server.exe",
+        "laddr": "127.0.0.1:8080",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11536,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61280",
+        "raddr": "127.0.0.1:61279",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61279",
+        "raddr": "127.0.0.1:61280",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-18T05:58:42.693396Z",
+    "connections": [
+      {
+        "pid": 4924,
+        "process": "node.exe",
+        "laddr": "::1:5173",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61326",
+        "raddr": "127.0.0.1:61327",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 6212,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61327",
+        "raddr": "127.0.0.1:61326",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 9496,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11240,
+        "process": "llama-server.exe",
+        "laddr": "127.0.0.1:8080",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 11536,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:8000",
+        "raddr": "N/A",
+        "status": "LISTEN",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61280",
+        "raddr": "127.0.0.1:61279",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      },
+      {
+        "pid": 15964,
+        "process": "python.exe",
+        "laddr": "127.0.0.1:61279",
+        "raddr": "127.0.0.1:61280",
+        "status": "ESTABLISHED",
+        "is_loopback": true
+      }
+    ]
+  }
+]

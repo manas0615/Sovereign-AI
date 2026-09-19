@@ -1,0 +1,50 @@
+{
+  "start_time": "2026-09-18T04:47:33.421191Z",
+  "end_time": "2026-09-18T04:47:38.455772Z",
+  "duration_seconds": 5.034581,
+  "monitored_processes_count": 3,
+  "observed_connections": [
+    {
+      "pid": 4924,
+      "process_name": "node.exe",
+      "fd": -1,
+      "family": "23",
+      "type": "1",
+      "laddr": "::1:5173",
+      "raddr": null,
+      "status": "LISTEN"
+    },
+    {
+      "pid": 4924,
+      "process_name": "node.exe",
+      "fd": -1,
+      "family": "23",
+      "type": "1",
+      "laddr": "::1:5173",
+      "raddr": "::1:61776",
+      "status": "ESTABLISHED"
+    },
+    {
+      "pid": 9496,
+      "process_name": "python.exe",
+      "fd": -1,
+      "family": "2",
+      "type": "1",
+      "laddr": "127.0.0.1:8000",
+      "raddr": null,
+      "status": "LISTEN"
+    },
+    {
+      "pid": 4924,
+      "process_name": "node.exe",
+      "fd": -1,
+      "family": "23",
+      "type": "1",
+      "laddr": "::1:5173",
+      "raddr": "::1:62420",
+      "status": "ESTABLISHED"
+    }
+  ],
+  "non_local_connections": [],
+  "verdict": "No external network activity was observed within the scope and duration of this monitoring test."
+}

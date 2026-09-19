@@ -1,0 +1,101 @@
+[
+  {
+    "trial": 1,
+    "max_tokens": 100,
+    "generated_tokens": 100,
+    "finish_reason": "length",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most romantic city in the world\",\n  \"rationale\": \"Paris is widely regarded as one of the most romantic cities in the world, known for its stunning architecture, beautiful gardens, and rich cultural heritage. The city is famous for its iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. Paris has also been the inspiration for countless works of art,",
+    "json_valid": false,
+    "ad_valid": false,
+    "latency": 2.759460210800171,
+    "error": "JSON Syntax Error"
+  },
+  {
+    "trial": 2,
+    "max_tokens": 100,
+    "generated_tokens": 87,
+    "finish_reason": "stop",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most romantic city in the world\",\n  \"rationale\": \"Paris is widely regarded as one of the most romantic cities in the world, known for its beautiful architecture, art museums, and picturesque streets. It has been a popular destination for couples and honeymooners for centuries.\",\n  \"confidence\": 0.9\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 2.3101882934570312,
+    "error": null
+  },
+  {
+    "trial": 3,
+    "max_tokens": 100,
+    "generated_tokens": 100,
+    "finish_reason": "length",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most romantic city\",\n  \"rationale\": \"Paris is widely regarded as the most romantic city in the world, known for its picturesque streets, iconic landmarks like the Eiffel Tower, and rich history of art and literature. It has been a popular destination for couples and honeymooners for centuries, earning its reputation as the 'City of Love'.\",\n  \"confidence\": 0.9\n",
+    "json_valid": false,
+    "ad_valid": false,
+    "latency": 2.597440719604492,
+    "error": "JSON Syntax Error"
+  },
+  {
+    "trial": 4,
+    "max_tokens": 256,
+    "generated_tokens": 80,
+    "finish_reason": "stop",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"city with romantic atmosphere\",\n  \"rationale\": \"Paris is often considered the most romantic city in the world, known for its beautiful architecture, art museums, and picturesque streets. It has been a popular destination for couples and honeymooners for centuries.\",\n  \"result\": \"Paris\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 2.0887062549591064,
+    "error": null
+  },
+  {
+    "trial": 5,
+    "max_tokens": 256,
+    "generated_tokens": 98,
+    "finish_reason": "stop",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"final answer 'Paris' with detailed rationale\",\n  \"result\": \"Paris\",\n  \"rationale \": {\n    \"reason\": \"Paris is the capital city of France and one of the most famous and romantic cities in the world, known for its iconic landmarks like the Eiffel Tower and Notre-Dame Cathedral.\",\n    \"confidence\": 0.9\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 2.6570210456848145,
+    "error": null
+  },
+  {
+    "trial": 6,
+    "max_tokens": 256,
+    "generated_tokens": 124,
+    "finish_reason": "stop",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most romantic city in the world\",\n  \"decision\": \"Paris\",\n  \"rationaleFile\": {\n    \"reasoning\": [\n      \"Paris is known for its stunning architecture, art museums, and romantic atmosphere.\",\n      \"It is often referred to as the 'City of Love' and is a popular destination for couples and honeymooners.\",\n      \"The city's beautiful parks, gardens, and Seine River add to its romantic charm.\"\n    ],\n    \"confidence\": 0.9\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 3.0590884685516357,
+    "error": null
+  },
+  {
+    "trial": 7,
+    "max_tokens": 512,
+    "generated_tokens": 84,
+    "finish_reason": "stop",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"best city to visit\",\n  \"rationale\": \"Paris is known for its iconic landmarks like the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. It is also famous for its romantic atmosphere, beautiful architecture, and rich cultural heritage.\",\n  \"confidence\": 0.9\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 2.1241252422332764,
+    "error": null
+  },
+  {
+    "trial": 8,
+    "max_tokens": 512,
+    "generated_tokens": 127,
+    "finish_reason": "stop",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most famous city in the world\",\n  \"rationale\": \"Based on general knowledge and cultural significance, Paris is widely regarded as one of the most famous cities in the world. It is known for its iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum, which houses the Mona Lisa. Paris has been a center of art, fashion, and culture for centuries and is often referred to as the 'City of Light'.\",\n  \"confidence\": 0.9\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 3.207338809967041,
+    "error": null
+  },
+  {
+    "trial": 9,
+    "max_tokens": 512,
+    "generated_tokens": 100,
+    "finish_reason": "stop",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most romantic city in the world\",\n  \"rationale\": \"Paris is widely regarded as one of the most romantic cities in the world, known for its stunning architecture, beautiful gardens, and picturesque streets. It has been a popular destination for couples and honeymooners for centuries, and is often referred to as the 'City of Love'.\",\n  \"confidence\": 0.9\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 2.564741611480713,
+    "error": null
+  }
+]

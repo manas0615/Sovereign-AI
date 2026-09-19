@@ -1,0 +1,8 @@
+{
+  "syntax_error_handled": true,
+  "timeout_teardown_verified": true,
+  "path_traversal_blocked": true,
+  "unallowlisted_tool_blocked": true,
+  "unknown_capability_fail_closed": true,
+  "authority_denial_fail_closed": true
+}

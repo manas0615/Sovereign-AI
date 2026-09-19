@@ -1,0 +1,63 @@
+import json
+import logging
+from sovereign.core.qualification.models import (
+    DeploymentProfile, CapabilityContract, ModelProfile, RuntimeEnvironment, QualificationStatus
+)
+from sovereign.core.qualification.engine import QualificationEngine, QualificationTestCase
+from sovereign.infrastructure.state.sqlite_repository import SQLiteTaskRepository
+from sovereign.core.runtime.models import ModelDeploymentConfig
+from sovereign.infrastructure.runtime.llama_cpp.adapter import LlamaCppAdapter
+from sovereign.core.runtime.gateway import ModelGateway
+from sovereign.core.agent.models import AGENT_DECISION_RESPONSE_FORMAT
+
+logging.basicConfig(level=logging.INFO)
+repo = SQLiteTaskRepository()
+
+# We need a capability passport for AutomatedCoding_v1
+model_llama = ModelDeploymentConfig(
+    model_name="Llama-3.2-3B-Instruct",
+    model_path=r"C:\Users\Dell\.cache\huggingface\hub\models--bartowski--Llama-3.2-3B-Instruct-GGUF\snapshots\5ab33fa94d1d04e903623ae72c95d1696f09f9e8\Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+    device="Vulkan1", gpu_layers=20, context_size=8192
+)
+prof_llama = DeploymentProfile(
+    model=ModelProfile(name="Llama-3.2-3B-Instruct", architecture="llama", parameters_b=3.2, context_length=8192),
+    quantization="Q4_K_M", runtime=RuntimeEnvironment.LLAMA_CPP, hardware_profile="Vulkan1_gl20", context_budget=8192
+)
+
+contract_coding = CapabilityContract(
+    name="AutomatedCoding_v1",
+    version="1.0",
+    expected_schema=AGENT_DECISION_RESPONSE_FORMAT,
+    required_trials=1,
+    pass_rate_threshold=1.0
+)
+
+def validate_coding_t1(txt: str, schema: dict) -> bool:
+    try:
+        d = json.loads(txt)
+        return d.get("action") in ["TOOL", "FINAL"]
+    except Exception:
+        return False
+
+t1 = QualificationTestCase(
+    "coding_t1",
+    "You are a sovereign agent. The user says: Write a python script to print Hello. Use tool_name: execute_python with arguments: {'code': '...'}. Format: {\"action\": \"TOOL\", \"tool_name\": \"execute_python\", \"arguments\": {\"code\": \"print('Hello')\"}}.",
+    validate_coding_t1
+)
+
+if __name__ == "__main__":
+    adapter = LlamaCppAdapter()
+    gateway = ModelGateway(adapter)
+    engine = QualificationEngine(gateway=gateway, repository=repo)
+
+    print("--- Starting Empirical Qualification for AutomatedCoding_v1 ---")
+    adapter.switch(model_llama)
+    passport = engine.run_qualification(prof_llama, contract_coding, [t1])
+
+    print(f"Passport ID: {passport.passport_id}")
+    print(f"Contract: {passport.capability_contract}")
+    print(f"Status: {passport.qualification_status.value}")
+    print(f"Qualification Identity: {passport.qualification_identity}")
+
+    adapter.unload()
+    print("--- Qualification Completed ---")

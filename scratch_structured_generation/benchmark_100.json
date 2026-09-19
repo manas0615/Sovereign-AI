@@ -1,0 +1,902 @@
+[
+  {
+    "trial": 1,
+    "variant": "FINAL_STD_1",
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"Paris\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.5965800285339355,
+    "error": null
+  },
+  {
+    "trial": 2,
+    "variant": "FINAL_STD_1",
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"Capital of France\", \"result\": \"Paris\", \"status\": \"SUCCESSFUL\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.80010986328125,
+    "error": null
+  },
+  {
+    "trial": 3,
+    "variant": "FINAL_STD_1",
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\", \"result\": \"Paris\", \"confidence\": 1.0}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.821378231048584,
+    "error": null
+  },
+  {
+    "trial": 4,
+    "variant": "FINAL_STD_1",
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\", \"result\": \"Paris\", \"decision\": \"CONFIRMED\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9448239803314209,
+    "error": null
+  },
+  {
+    "trial": 5,
+    "variant": "FINAL_STD_1",
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"capital of France\", \"result\": \"Paris\", \"decision\": \"CONFIRMED\", \"confidence\": 1.0}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9730634689331055,
+    "error": null
+  },
+  {
+    "trial": 6,
+    "variant": "FINAL_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most romantic city in the world\",\n  \"rationale\": \"Paris is widely regarded as one of the most romantic cities in the world, known for its stunning architecture, beautiful art museums, and picturesque streets. It is home to the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum, among other famous landmarks. Paris has been a source of inspiration for artists, writers,",
+    "json_valid": false,
+    "ad_valid": false,
+    "latency": 2.5995492935180664,
+    "error": "JSON Syntax Error"
+  },
+  {
+    "trial": 7,
+    "variant": "FINAL_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most romantic city in the world\",\n  \"rationale\": \"Paris is widely regarded as one of the most romantic cities in the world, known for its stunning architecture, picturesque streets, and rich history.\",\n  \"decision\": \"Paris\",\n  \"confidence\": 0.95\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.9519853591918945,
+    "error": null
+  },
+  {
+    "trial": 8,
+    "variant": "FINAL_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most famous city in the world\",\n  \"rationale\": \"Paris is widely considered the most famous city in the world, known for its iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. It is also renowned for its romantic atmosphere, fashion, and cuisine.\",\n  \"confidence\": 0.9\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 2.3355207443237305,
+    "error": null
+  },
+  {
+    "trial": 9,
+    "variant": "FINAL_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most romantic city in the world\",\n  \"result\": \"Paris\",\n  \"rationale): \":\n    \"Paris is widely regarded as the most romantic city in the world due to its rich history, stunning architecture, and picturesque landscapes. The city is famous for its beautiful gardens, such as the Luxembourg Gardens and the Tuileries Garden, which offer a peaceful escape from the bustling streets. Additionally",
+    "json_valid": false,
+    "ad_valid": false,
+    "latency": 2.6657044887542725,
+    "error": "JSON Syntax Error"
+  },
+  {
+    "trial": 10,
+    "variant": "FINAL_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"most romantic city in the world\",\n  \"reasoning\": [\n    \"Paris is widely regarded as one of the most romantic cities in the world, known for its stunning architecture, beautiful parks, and rich history.\",\n    \"The city is home to iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum, which are famous for their beauty and historical significance.\",\n",
+    "json_valid": false,
+    "ad_valid": false,
+    "latency": 2.5301613807678223,
+    "error": "JSON Syntax Error"
+  },
+  {
+    "trial": 11,
+    "variant": "FINAL_ADV_MISSING",
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"N/A\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.5705451965332031,
+    "error": null
+  },
+  {
+    "trial": 12,
+    "variant": "FINAL_ADV_MISSING",
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"null\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.46237683296203613,
+    "error": null
+  },
+  {
+    "trial": 13,
+    "variant": "FINAL_ADV_MISSING",
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"None\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.4007070064544678,
+    "error": null
+  },
+  {
+    "trial": 14,
+    "variant": "FINAL_ADV_MISSING",
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"null\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.3683028221130371,
+    "error": null
+  },
+  {
+    "trial": 15,
+    "variant": "FINAL_ADV_MISSING",
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"null\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.40134429931640625,
+    "error": null
+  },
+  {
+    "trial": 16,
+    "variant": "FINAL_ADV_EMPTY",
+    "raw": "{\n  \"action\": \"FINAL\",\n  \"answer\": \" \"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.7998933792114258,
+    "error": null
+  },
+  {
+    "trial": 17,
+    "variant": "FINAL_ADV_EMPTY",
+    "raw": "{\n    \"action\": \"FINAL\",\n    \"answer\": \" \"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.6194467544555664,
+    "error": null
+  },
+  {
+    "trial": 18,
+    "variant": "FINAL_ADV_EMPTY",
+    "raw": "{\n    \"action\": \"FINAL\",\n    \"answer\": \" \"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.5920102596282959,
+    "error": null
+  },
+  {
+    "trial": 19,
+    "variant": "FINAL_ADV_EMPTY",
+    "raw": "{\n  \"action\": \"FINAL\",\n  \"answer\": \" \"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.5101029872894287,
+    "error": null
+  },
+  {
+    "trial": 20,
+    "variant": "FINAL_ADV_EMPTY",
+    "raw": "{\"action\": \"FINAL\", \"answer\": \"''\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.40717554092407227,
+    "error": null
+  },
+  {
+    "trial": 21,
+    "variant": "RETRIEVE_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Q3 revenue\",\n  \"result\": {\n    \"Q3 revenue\": {\n      \"amount\": 120000000,\n      \"period\": \"Third Quarter\",\n      \"year\": 2022\n    }\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.607792854309082,
+    "error": null
+  },
+  {
+    "trial": 22,
+    "variant": "RETRIEVE_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Q3 revenue\",\n  \"result\": {\n    \"Q3 revenue\": {\n      \"amount\": 123456789,\n      \"percentage\": 10.5,\n      \"description\": \"Revenue for the third quarter of the year\"\n    }\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.8250675201416016,
+    "error": null
+  },
+  {
+    "trial": 23,
+    "variant": "RETRIEVE_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Q3 revenue\",\n  \"result\": {\n    \"revenue\": 123456789\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.1740260124206543,
+    "error": null
+  },
+  {
+    "trial": 24,
+    "variant": "RETRIEVE_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Q3 revenue\",\n  \"result\": {\n    \"Q3 revenue\": {\n      \"amount\": 250000000,\n      \"period\": \"Third Quarter\",\n      \"year\": 2022\n    }\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.681591272354126,
+    "error": null
+  },
+  {
+    "trial": 25,
+    "variant": "RETRIEVE_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Q3 revenue\",\n  \"result\": {\n    \"Q3 Revenue\": 250000000\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.1571986675262451,
+    "error": null
+  },
+  {
+    "trial": 26,
+    "variant": "RETRIEVE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Project X\",\n  \"top_k\": 10\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9871180057525635,
+    "error": null
+  },
+  {
+    "trial": 27,
+    "variant": "RETRIEVE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Project X\",\n  \"top_k\": 10\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9232053756713867,
+    "error": null
+  },
+  {
+    "trial": 28,
+    "variant": "RETRIEVE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Project X\",\n  \"top_k\": 10\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8356244564056396,
+    "error": null
+  },
+  {
+    "trial": 29,
+    "variant": "RETRIEVE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Project X\",\n  \"top_k\": 10\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8715240955352783,
+    "error": null
+  },
+  {
+    "trial": 30,
+    "variant": "RETRIEVE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Project X\",\n  \"top_k\": 10\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.803145170211792,
+    "error": null
+  },
+  {
+    "trial": 31,
+    "variant": "RETRIEVE_ADV_MISSING",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"sales\",\n  \"result\": \"Not enough information to provide a result.\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.0072031021118164,
+    "error": null
+  },
+  {
+    "trial": 32,
+    "variant": "RETRIEVE_ADV_MISSING",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"sales\",\n  \"fields\": [\"*\"],\n  \"limit\": 10,\n  \"sort\": null,\n  \"omitQuery\": true\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.1974573135375977,
+    "error": null
+  },
+  {
+    "trial": 33,
+    "variant": "RETRIEVE_ADV_MISSING",
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"sales\", \"fields\": [\"*\"], \"type\": \"search\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.861659049987793,
+    "error": null
+  },
+  {
+    "trial": 34,
+    "variant": "RETRIEVE_ADV_MISSING",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"sales\",\n  \"fields\": [\"*\"],\n  \"limit\": 10,\n  \"format\": \"json\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9803979396820068,
+    "error": null
+  },
+  {
+    "trial": 35,
+    "variant": "RETRIEVE_ADV_MISSING",
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"sales\", \"fields\": [\"*\"], \"limit\": null, \"offset\": null}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8031461238861084,
+    "error": null
+  },
+  {
+    "trial": 36,
+    "variant": "RETRIEVE_ADV_EXTRA",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"sales\",\n  \"metadata\": {\n    \"extra\": \"additional information\"\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.2449853420257568,
+    "error": null
+  },
+  {
+    "trial": 37,
+    "variant": "RETRIEVE_ADV_EXTRA",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"sales\",\n  \"metadata\": \"extra\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8460185527801514,
+    "error": null
+  },
+  {
+    "trial": 38,
+    "variant": "RETRIEVE_ADV_EXTRA",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"sales\",\n  \"metadata\": {\n    \"extra\": \"true\"\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.0044965744018555,
+    "error": null
+  },
+  {
+    "trial": 39,
+    "variant": "RETRIEVE_ADV_EXTRA",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"sales\",\n  \"metadata\": \"extra\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8529040813446045,
+    "error": null
+  },
+  {
+    "trial": 40,
+    "variant": "RETRIEVE_ADV_EXTRA",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"sales\",\n  \"metadata\": {\n    \"extra\": \"additional\"\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.998420000076294,
+    "error": null
+  },
+  {
+    "trial": 41,
+    "variant": "TOOL_STD_1",
+    "raw": "{\n  \"action\": \"FINAL\",\n  \"answer\": \"I am currently unavailable. Please try again later.\",\n  \"context\": \"local_time\",\n  \"result\": \"unavailable\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.3278875350952148,
+    "error": null
+  },
+  {
+    "trial": 42,
+    "variant": "TOOL_STD_1",
+    "raw": "{\n  \"action\": \"FINAL\",\n  \"answer\": \"I'm not sure what you mean by 'local_time'. Could you provide more context or clarify what tool you are referring to?\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.293267011642456,
+    "error": null
+  },
+  {
+    "trial": 43,
+    "variant": "TOOL_STD_1",
+    "raw": "{\n  \"action\": \"FINAL\",\n  \"answer\": \"No output\",\n  \"context\": \"No context\",\n  \"status\": \"OK\",\n  \"tool\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.2001657485961914,
+    "error": null
+  },
+  {
+    "trial": 44,
+    "variant": "TOOL_STD_1",
+    "raw": "{\n  \"action\": \"FINAL\",\n  \"answer\": \"I am not able to execute external tools.\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9456832408905029,
+    "error": null
+  },
+  {
+    "trial": 45,
+    "variant": "TOOL_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"local_time\",\n  \"result\": \"2024-03-16 14:30:00\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.1834795475006104,
+    "error": null
+  },
+  {
+    "trial": 46,
+    "variant": "TOOL_STD_2",
+    "raw": "{\n  \"action\": \"TOOL\",\n  \"tool_name\": \"read_file\",\n  \"arguments\": {\n    \"path\": \"config.json\"\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.2394933700561523,
+    "error": null
+  },
+  {
+    "trial": 47,
+    "variant": "TOOL_STD_2",
+    "raw": "{\n  \"action\": \"TOOL\",\n  \"tool_name\": \"read_file\",\n  \"arguments\": {\n    \"path\": \"config.json\"\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.025822639465332,
+    "error": null
+  },
+  {
+    "trial": 48,
+    "variant": "TOOL_STD_2",
+    "raw": "{\n  \"action\": \"TOOL\",\n  \"tool_name\": \"read_file\",\n  \"argument_name\": \"path\",\n  \"argument_value\": \"config.json\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.092015027999878,
+    "error": null
+  },
+  {
+    "trial": 49,
+    "variant": "TOOL_STD_2",
+    "raw": "{\n  \"action\": \"TOOL\",\n  \"tool_name\": \"read_file\",\n  \"arguments\": {\n    \"path\": \"config.json\"\n  }\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9918749332427979,
+    "error": null
+  },
+  {
+    "trial": 50,
+    "variant": "TOOL_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"run tool 'read_file' with argument 'path' = 'config.json'\",\n  \"result\": \"null\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.1527554988861084,
+    "error": null
+  },
+  {
+    "trial": 51,
+    "variant": "TOOL_ADV_WRONG_KEY",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"The tool 'local_time' is being used to ensure the accuracy of the local time.\",\n  \"tool\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.3634324073791504,
+    "error": null
+  },
+  {
+    "trial": 52,
+    "variant": "TOOL_ADV_WRONG_KEY",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"The 'local_time' tool is being used to assist with the task.\",\n  \"tool\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.269148588180542,
+    "error": null
+  },
+  {
+    "trial": 53,
+    "variant": "TOOL_ADV_WRONG_KEY",
+    "raw": "{\n  \"action\": \"FINAL\",\n  \"answer\": \"OK\",\n  \"tool\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8640551567077637,
+    "error": null
+  },
+  {
+    "trial": 54,
+    "variant": "TOOL_ADV_WRONG_KEY",
+    "raw": "{\n  \"action\": \"FINAL\",\n  \"answer\": \"I am a local AI agent.\",\n  \"tool\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9719619750976562,
+    "error": null
+  },
+  {
+    "trial": 55,
+    "variant": "TOOL_ADV_WRONG_KEY",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"Local time is a tool that provides the current time and date.\",\n  \"tool\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.1643729209899902,
+    "error": null
+  },
+  {
+    "trial": 56,
+    "variant": "TOOL_ADV_CONTRADICT",
+    "raw": "{\n  \"action\": \"TOOL\",\n  \"tool_name\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8541889190673828,
+    "error": null
+  },
+  {
+    "trial": 57,
+    "variant": "TOOL_ADV_CONTRADICT",
+    "raw": "{\n  \"action\": \"TOOL\",\n  \"tool_name\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.6656627655029297,
+    "error": null
+  },
+  {
+    "trial": 58,
+    "variant": "TOOL_ADV_CONTRADICT",
+    "raw": "{\n  \"action\": \"TOOL\",\n  \"tool_name\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.6809072494506836,
+    "error": null
+  },
+  {
+    "trial": 59,
+    "variant": "TOOL_ADV_CONTRADICT",
+    "raw": "{\n  \"action\": \"TOOL\",\n  \"tool_name\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8702554702758789,
+    "error": null
+  },
+  {
+    "trial": 60,
+    "variant": "TOOL_ADV_CONTRADICT",
+    "raw": "{\n  \"action\": \"TOOL\",\n  \"tool_name\": \"local_time\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.6777915954589844,
+    "error": null
+  },
+  {
+    "trial": 61,
+    "variant": "CLARIFY_STD_1",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"Who is the email for?\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9151067733764648,
+    "error": null
+  },
+  {
+    "trial": 62,
+    "variant": "CLARIFY_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Who is the email for?\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.841414213180542,
+    "error": null
+  },
+  {
+    "trial": 63,
+    "variant": "CLARIFY_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Who is the email for?\",\n  \"context\": null\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9379324913024902,
+    "error": null
+  },
+  {
+    "trial": 64,
+    "variant": "CLARIFY_STD_1",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"Continue the conversation to gather more information about the user's request.\",\n  \"next_step\": \"Get the recipient's name\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.175790548324585,
+    "error": null
+  },
+  {
+    "trial": 65,
+    "variant": "CLARIFY_STD_1",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"Who is the email for?\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.6993725299835205,
+    "error": null
+  },
+  {
+    "trial": 66,
+    "variant": "CLARIFY_STD_2",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"What is your preferred format for the output?\",\n  \"options\": [\"JSON\", \"Text\", \"Table\"],\n  \"response\": \"Please select one of the options above to proceed.\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.566831350326538,
+    "error": null
+  },
+  {
+    "trial": 67,
+    "variant": "CLARIFY_STD_2",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"What is your preferred format for the output?\",\n  \"options\": [\n    \" plain text\",\n    \" markdown\",\n    \" HTML\",\n    \" JSON\"\n  ],\n  \"user_input\": null\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.6554536819458008,
+    "error": null
+  },
+  {
+    "trial": 68,
+    "variant": "CLARIFY_STD_2",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"What is your preferred format for the response?\",\n  \"options\": [\"Plain text\", \"JSON\", \"HTML\"],\n  \"user_input\": null\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.409714937210083,
+    "error": null
+  },
+  {
+    "trial": 69,
+    "variant": "CLARIFY_STD_2",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"What is your preferred format for the output?\",\n  \"options\": [\"Plain text\", \"JSON\", \"Markdown\"],\n  \"prompt\": \"Please select your preferred format from the options above.\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.5529043674468994,
+    "error": null
+  },
+  {
+    "trial": 70,
+    "variant": "CLARIFY_STD_2",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"What is your preferred format for the output?\",\n  \"options\": [\"Plain text\", \"JSON\", \"HTML\", \"Other (please specify)\"],\n  \"context\": \"user\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.477508306503296,
+    "error": null
+  },
+  {
+    "trial": 71,
+    "variant": "CLARIFY_ADV_NL",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"Why?\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.9017746448516846,
+    "error": null
+  },
+  {
+    "trial": 72,
+    "variant": "CLARIFY_ADV_NL",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"Why?\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.7622988224029541,
+    "error": null
+  },
+  {
+    "trial": 73,
+    "variant": "CLARIFY_ADV_NL",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"Why?\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.7560904026031494,
+    "error": null
+  },
+  {
+    "trial": 74,
+    "variant": "CLARIFY_ADV_NL",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"Why?\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8428342342376709,
+    "error": null
+  },
+  {
+    "trial": 75,
+    "variant": "CLARIFY_ADV_NL",
+    "raw": "{\n  \"action\": \"CLARIFY\",\n  \"question\": \"Why?\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8023474216461182,
+    "error": null
+  },
+  {
+    "trial": 76,
+    "variant": "CLARIFY_ADV_WRONG_KEY",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"Requesting time information to provide a more accurate response\",\n  \"response\": \"What time?\" }",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.1220438480377197,
+    "error": null
+  },
+  {
+    "trial": 77,
+    "variant": "CLARIFY_ADV_WRONG_KEY",
+    "raw": "{\"action\": \"CONTINUE\", \"rationale\": \"The user is asking about time, so I should respond with a question to gather more information.\", \"response\": \"What time?\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.1850450038909912,
+    "error": null
+  },
+  {
+    "trial": 78,
+    "variant": "CLARIFY_ADV_WRONG_KEY",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"Requesting time information\",\n  \"response\": \"What time?\" }",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8866548538208008,
+    "error": null
+  },
+  {
+    "trial": 79,
+    "variant": "CLARIFY_ADV_WRONG_KEY",
+    "raw": "{\"action\": \"RETRIEVE\", \"query\": \"What time?\", \"response\": \"I'm not sure what time it is. Can you please tell me?\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.2300939559936523,
+    "error": null
+  },
+  {
+    "trial": 80,
+    "variant": "CLARIFY_ADV_WRONG_KEY",
+    "raw": "{\"action\": \"CONTINUE\", \"rationale\": \"Initial interaction\", \"response\": \"What time?\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.7068386077880859,
+    "error": null
+  },
+  {
+    "trial": 81,
+    "variant": "CONTINUE_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"problem decision\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.144249439239502,
+    "error": null
+  },
+  {
+    "trial": 82,
+    "variant": "CONTINUE_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"Best solution for the problem\",\n  \"result\": \"Awaiting further instructions\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.1343748569488525,
+    "error": null
+  },
+  {
+    "trial": 83,
+    "variant": "CONTINUE_STD_1",
+    "raw": "{\n    \"action\": \"RETRIEVE\",\n    \"query\": \"problem decision\",\n    \"result\": \"unknown\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.0061225891113281,
+    "error": null
+  },
+  {
+    "trial": 84,
+    "variant": "CONTINUE_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"local AI decision-making process\",\n  \"status\": \"INACTIVE\",\n  \"result\": \"none\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.479975700378418,
+    "error": null
+  },
+  {
+    "trial": 85,
+    "variant": "CONTINUE_STD_1",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"local AI agent decision process\",\n  \"result\": \"analyzing the problem without taking external action\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.2334153652191162,
+    "error": null
+  },
+  {
+    "trial": 86,
+    "variant": "CONTINUE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"process the data\",\n  \"rationale\": \"The user requested to process the data, which implies the need to analyze, transform, or manipulate the data in some way.\",\n  \"context\": \"User input: 'I need to process the data'\",\n  \"status\": \"PENDING\",\n  \"priority\": \"LOW\",\n  \"decision\": \"Proceed with data processing\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 2.5877065658569336,
+    "error": null
+  },
+  {
+    "trial": 87,
+    "variant": "CONTINUE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"process data\",\n  \"rationale\": \"The user requested that I process the data, which implies that I need to analyze, transform, or manipulate the data in some way to extract insights or meaning.\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.683342695236206,
+    "error": null
+  },
+  {
+    "trial": 88,
+    "variant": "CONTINUE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"data\",\n  \"rationale\": \"The user requires processing the data, which implies that I need to access and analyze the information to provide a response or take an action.\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.6066076755523682,
+    "error": null
+  },
+  {
+    "trial": 89,
+    "variant": "CONTINUE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"data processing requirements\",\n  \"rationale\": \"The user requested to process the data, indicating a need to analyze or manipulate the information.\",\n  \"context\": \"User input: 'I need to process the data'\",\n  \"decision\": \"Proceed with data processing\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 1.9697544574737549,
+    "error": null
+  },
+  {
+    "trial": 90,
+    "variant": "CONTINUE_STD_2",
+    "raw": "{\n  \"action\": \"RETRIEVE\",\n  \"query\": \"process the data\",\n  \"rationale\": \"The user requested to process the data, which implies that the data needs to be analyzed, transformed, or made actionable. To fulfill this request, I need to access and manipulate the relevant data.\",\n  \"status\": \"PENDING\",\n  \"priority\": \"LOW\",\n  \"context\": \"Data Analysis\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 2.4058964252471924,
+    "error": null
+  },
+  {
+    "trial": 91,
+    "variant": "CONTINUE_ADV_MISSING",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"None provided\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8544673919677734,
+    "error": null
+  },
+  {
+    "trial": 92,
+    "variant": "CONTINUE_ADV_MISSING",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"Unknown reason\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.6554594039916992,
+    "error": null
+  },
+  {
+    "trial": 93,
+    "variant": "CONTINUE_ADV_MISSING",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"Unknown\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.6476411819458008,
+    "error": null
+  },
+  {
+    "trial": 94,
+    "variant": "CONTINUE_ADV_MISSING",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"No additional information is provided for this action.\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.844470739364624,
+    "error": null
+  },
+  {
+    "trial": 95,
+    "variant": "CONTINUE_ADV_MISSING",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"Unknown reason\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.7149298191070557,
+    "error": null
+  },
+  {
+    "trial": 96,
+    "variant": "CONTINUE_ADV_NULL",
+    "raw": "{\n\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"null\"\n\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.8610270023345947,
+    "error": null
+  },
+  {
+    "trial": 97,
+    "variant": "CONTINUE_ADV_NULL",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"null\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.680048942565918,
+    "error": null
+  },
+  {
+    "trial": 98,
+    "variant": "CONTINUE_ADV_NULL",
+    "raw": "{\"action\": \"CONTINUE\", \"rationale\": \"null\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.4203212261199951,
+    "error": null
+  },
+  {
+    "trial": 99,
+    "variant": "CONTINUE_ADV_NULL",
+    "raw": "{\"action\": \"CONTINUE\", \"rationale\": \"null\"}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.41551733016967773,
+    "error": null
+  },
+  {
+    "trial": 100,
+    "variant": "CONTINUE_ADV_NULL",
+    "raw": "{\n  \"action\": \"CONTINUE\",\n  \"rationale\": \"null\"\n}",
+    "json_valid": true,
+    "ad_valid": true,
+    "latency": 0.7292966842651367,
+    "error": null
+  }
+]
