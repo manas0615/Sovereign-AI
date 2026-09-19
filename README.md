@@ -1,6 +1,6 @@
 <div align="center">
 
-# ??? Sovereign AI Workbench
+# 🛡️ Sovereign AI Workbench
 
 ### **Self-Hosted, On-Premise Agentic AI Workbench with Governed Execution & Capability Passports for Confidential Industrial Work**
 
@@ -14,43 +14,43 @@
 [![Targeted Tests](https://img.shields.io/badge/Targeted%20Tests-91%20Passed%20%7C%203%20Skipped-brightgreen.svg)](#-quick-start)
 [![Benchmark Correctness](https://img.shields.io/badge/Benchmark%20Correctness-98.0%25-success.svg)](#-empirical-benchmark-highlights)
 
-[**Executive Overview**](#-executive-overview) �
-[**Core Innovation**](#-core-technical-innovation) �
-[**System Architecture**](#-system-architecture) �
-[**Capabilities**](#-core-capabilities) �
-[**Benchmarks**](#-empirical-benchmark-highlights) �
-[**Quick Start**](#-quick-start) �
+[**Executive Overview**](#-executive-overview) •
+[**Core Innovation**](#-core-technical-innovation) •
+[**System Architecture**](#-system-architecture) •
+[**Capabilities**](#-core-capabilities) •
+[**Benchmarks**](#-empirical-benchmark-highlights) •
+[**Quick Start**](#-quick-start) •
 [**Documentation**](#-documentation-index)
 
 </div>
 
 ---
 
-## ?? Executive Overview
+## 📋 Executive Overview
 
-**Sovereign AI** is an on-premise, model-agnostic agentic AI workbench designed for confidential industrial sectors�including public sector undertakings (PSUs), defence manufacturing, refineries, thermal power stations, and critical national infrastructure.
+**Sovereign AI** is an on-premise, model-agnostic agentic AI workbench designed for confidential industrial sectors—including public sector undertakings (PSUs), defence manufacturing, refineries, thermal power stations, and critical national infrastructure.
 
 In these mission-critical domains, proprietary intellectual property (piping and instrumentation diagrams, equipment ultrasonic inspection reports, process safety manuals, SCADA telemetry logs, and standard operating procedures) cannot leave the enterprise perimeter due to strict data residency laws and security mandates.
 
 ```
 Traditional Cloud AI Workflows:
-Sensitive Enterprise Data  --?  Public Cloud API  --?  Third-Party Infrastructure (High Data Exposure Risk)
+Sensitive Enterprise Data  ──►  Public Cloud API  ──►  Third-Party Infrastructure (Data Exposure Risk)
 
 Sovereign AI Architecture:
-Sensitive Enterprise Data  --?  Local Host Execution  --?  Local Quantized Models (Zero Cloud Exfiltration)
+Sensitive Enterprise Data  ──►  Local Host Execution  ──►  Local Quantized Models (Zero WAN Outbound Sockets Observed)
 ```
 
 Sovereign AI brings sovereign, governed AI execution directly to standard enterprise Windows workstations:
-* ?? **Local Host Execution:** In-boundary execution over localhost loopback; observed socket audits confirm zero external WAN socket connections during runtime operations.
-* ? **High-Performance Local Runtime:** Native `llama.cpp` inference powering quantized open-weight models (`Llama-3.2`, `Qwen2.5`, `DeepSeek-R1-Distill`) with GPU offloading and sequential model swapping.
-* ?? **The Governance Triad:** Replaces uncalibrated model trust with empirical evaluation. Models are strictly gated by verified **Capability Passports** before being granted tool execution permits.
-* ?? **Local Hybrid Knowledge Engine:** Ingests technical manuals and scanned inspection sheets using SQLite FTS5 BM25 lexical search, ChromaDB dense embeddings, and a local OCR pipeline.
-* ??? **Governed In-Process Tool Execution:** Restricted subprocess boundary with execution timeouts, path containment, and sanitized environments.
-* ?? **Verifiable Industrial Deliverables:** Automatically synthesizes multi-format reports (`.docx`, `.xlsx`, `.pptx`, `.pdf`, `.json`) accompanied by immutable SHA-256 byte manifests and exact source citations.
+* 🔒 **Local Host Execution:** In-boundary execution over localhost loopback; recorded socket audits confirm zero external WAN socket connections during runtime operations.
+* ⚡ **High-Performance Local Runtime:** Native `llama.cpp` inference powering quantized open-weight models (`Llama-3.2`, `Qwen2.5`, `DeepSeek-R1-Distill`) with GPU offloading and sequential model swapping.
+* ⚖️ **The Governance Triad:** Replaces uncalibrated model trust with empirical evaluation. Models are strictly gated by verified **Capability Passports** before being granted tool execution permits.
+* 📚 **Local Hybrid Knowledge Engine:** Ingests technical manuals and scanned inspection sheets using SQLite FTS5 BM25 lexical search, ChromaDB dense embeddings, and a local OCR pipeline.
+* 🛡️ **Governed Subprocess Tool Execution:** Restricted subprocess boundary with execution timeouts, path containment, and sanitized environments.
+* 📑 **Verifiable Industrial Deliverables:** Automatically synthesizes multi-format reports (`.docx`, `.xlsx`, `.pptx`, `.pdf`, `.json`) accompanied by recorded SHA-256 digests allowing file-byte integrity checks against generated hashes.
 
 ---
 
-## ?? Core Technical Innovation
+## 💡 Core Technical Innovation
 
 ### The Governance Triad: $\text{Configuration} \neq \text{Qualification} \neq \text{Authority}$
 
@@ -60,14 +60,14 @@ Most agentic AI architectures conflate a model's availability with its permissio
 flowchart LR
     subgraph S1["1. Configuration"]
         direction TB
-        DP["Deployment Profile<br/><b>M � Q � R � H � C</b>"]
+        DP["Deployment Profile<br/><b>M × Q × R × H × C</b>"]
     end
 
     subgraph S2["2. Qualification"]
         direction TB
         CC["Capability Contract<br/><b>Schema & Threshold</b>"]
         QE["Qualification Engine<br/><b>Empirical Test Harness</b>"]
-        CP["Capability Passport<br/><b>M � Q � R � H � C � T</b>"]
+        CP["Capability Passport<br/><b>M × Q × R × H × C × T</b>"]
         CC --> QE
         QE --> CP
     end
@@ -105,7 +105,7 @@ flowchart LR
 
 ---
 
-## ?? Core Capabilities
+## 🚀 Core Capabilities
 
 | Capability | Implementation Details | Operational Status |
 | :--- | :--- | :--- |
@@ -122,13 +122,13 @@ flowchart LR
 
 ---
 
-## ??? System Architecture
+## 🏗️ System Architecture
 
-Sovereign AI follows a strict frozen package architecture (**P00�P09**) where every subsystem has explicit ownership boundaries:
+Sovereign AI follows a strict frozen package architecture (**P00–P09**) where every subsystem has explicit ownership boundaries:
 
 ```mermaid
 flowchart TD
-    subgraph UI["P09 � Sovereign UI (React 19 + TypeScript)"]
+    subgraph UI["P09 — Sovereign UI (React 19 + TypeScript)"]
         Chat["Assistant Chat"]
         Studio["Coding Studio"]
         Docs["Knowledge Library"]
@@ -136,43 +136,43 @@ flowchart TD
         Pass["Passports & Invariants"]
     end
 
-    subgraph API["P07 � Application & Integration Gateway (FastAPI)"]
+    subgraph API["P07 — Application & Integration Gateway (FastAPI)"]
         Routes["REST & SSE Endpoints"]
         Auth["Loopback Auth & Validation"]
     end
 
-    subgraph Core["P05 � Agent Host & Orchestration"]
+    subgraph Core["P05 — Agent Host & Orchestration"]
         Host["AgentHost ReAct Engine"]
         Context["Context Manager (Budget Allocation)"]
         Router["Capability Router"]
     end
 
-    subgraph Governance["P08 � Qualification & Authority"]
+    subgraph Governance["P08 — Qualification & Authority"]
         Engine["Qualification Engine"]
         Contracts["Capability Contracts"]
         Passports["Passport Ledger"]
     end
 
-    subgraph Execution["P04 � Governed Tools & Execution"]
+    subgraph Execution["P04 — Governed Tools & Execution"]
         Executor["Tool Executor"]
-        Boundary["Restricted Execution Boundary"]
+        Boundary["Restricted Subprocess Boundary"]
         Verifier["TrustedCodeVerifier"]
     end
 
-    subgraph Knowledge["P03 � Knowledge & Document Intelligence"]
+    subgraph Knowledge["P03 — Knowledge & Document Intelligence"]
         FTS["SQLite FTS5 (BM25)"]
         Vector["ChromaDB Vector Store"]
         OCR["Local OCR Pipeline"]
     end
 
-    subgraph Runtime["P01 � Model Gateway & Runtime"]
+    subgraph Runtime["P01 — Model Gateway & Runtime"]
         Gateway["Model Gateway"]
         Llama["llama.cpp Adapter"]
         Lifecycle["Sequential Lifecycle Manager"]
     end
 
-    subgraph State["P02 / P06 � Persistent State & Artifacts"]
-        DB[(SQLite Task & State Store)]
+    subgraph State["P02 / P06 — Persistent State & Artifacts"]
+        DB[("SQLite Task & State Store")]
         Artifacts["Artifact Engine (DOCX/XLSX/PPTX/PDF)"]
     end
 
@@ -199,7 +199,7 @@ flowchart TD
 
 ---
 
-## ?? End-to-End Governed Workflow
+## 🔄 End-to-End Governed Workflow
 
 When a user submits an industrial task, Sovereign AI executes a deterministic 7-step pipeline:
 
@@ -225,16 +225,16 @@ sequenceDiagram
     Host->>Tools: Execute within Restricted Subprocess
     Tools-->>Host: Execution Result (Grounded Finding)
     Host->>Artifact: Synthesize Technical Briefing (.docx / .xlsx)
-    Artifact-->>Host: Artifact Generated (SHA-256 Digest Attached)
+    Artifact-->>Host: Artifact Generated (SHA-256 Digest Recorded)
     Host->>UI: Stream Structured Solution & Downloadable Deliverable
     UI-->>User: Verified Deliverable & Provenance Ledger
 ```
 
 ---
 
-## ?? Multi-Model Routing & Hot-Swapping
+## 🔀 Multi-Model Routing & Hot-Swapping
 
-To support diverse industrial capabilities on constrained workstation hardware (e.g., 4 GB � 8 GB VRAM), Sovereign AI dynamically swaps specialized quantized models sequentially without overlapping memory:
+To support diverse industrial capabilities on constrained workstation hardware (e.g., 4 GB – 8 GB VRAM), Sovereign AI dynamically swaps specialized quantized models sequentially without overlapping memory:
 
 ```mermaid
 stateDiagram-v2
@@ -255,7 +255,7 @@ stateDiagram-v2
 
 ---
 
-## ?? Empirical Benchmark Highlights
+## 📊 Empirical Benchmark Highlights
 
 Sovereign AI's local model capabilities were evaluated against a benchmark suite consisting of **50 diverse industrial and algorithmic tasks across 150 trials** using the locally hosted `Llama-3.2-3B-Instruct` deployment:
 
@@ -263,7 +263,7 @@ Sovereign AI's local model capabilities were evaluated against a benchmark suite
 
 | Evaluation Metric | Evaluated Result | Benchmark Scope |
 | :--- | :---: | :--- |
-| **Total Test Trials** | **150** | 50 Industrial Tasks $\times$ 3 Independent Trials |
+| **Total Test Trials** | **150** | 50 Industrial Tasks × 3 Independent Trials |
 | **Evaluable Submissions** | **149 / 150 (99.3%)** | Well-formed JSON & extractable Python scripts |
 | **First Captured Submission Correctness** | **95.3%** | **142 / 149** evaluable submissions passed independent hidden assertions on Turn 1 |
 | **Final Captured Submission Correctness** | **98.0%** | **146 / 149** evaluable submissions passed independent hidden assertions |
@@ -283,7 +283,7 @@ xychart-beta
 
 ---
 
-## ??? Model Qualification Showcase
+## 🎖️ Model Qualification Showcase
 
 Under the Phase 3 empirical qualification protocol, the locally hosted `Llama-3.2-3B-Instruct` (Q4_K_M, 8192 context, Vulkan backend) was evaluated against specific schema-validation capability contracts:
 
@@ -293,7 +293,7 @@ Under the Phase 3 empirical qualification protocol, the locally hosted `Llama-3.
 | :--- | :---: | :---: | :--- | :---: |
 | **`DocumentRetrieval_v1`** | `1.0` | `t_doc` | Structured retrieval JSON action formatting | **QUALIFIED** |
 | **`AutomatedCoding_v1`** | `1.0` | `t_code` | Structured code execution JSON action formatting | **QUALIFIED** |
-| **`AgentDecision_v1`** | `1.0` | `t_doc`\* | Multi-action JSON envelope formatting adherence | **QUALIFIED** |
+| **`AgentDecision_v1`** | `1.0` | `t_doc`* | Multi-action JSON envelope formatting adherence | **QUALIFIED** |
 
 </div>
 
@@ -301,30 +301,30 @@ Under the Phase 3 empirical qualification protocol, the locally hosted `Llama-3.
 
 ---
 
-## ?? Verifiable Industrial Deliverables
+## 📄 Verifiable Industrial Deliverables
 
-Sovereign AI generates professional business deliverables directly on the local host. Every generated deliverable is accompanied by an immutable SHA-256 byte manifest, timestamp, and citation list:
+Sovereign AI generates professional business deliverables directly on the local host. Every generated deliverable is accompanied by a recorded SHA-256 byte digest allowing integrity verification against the task ledger:
 
 ```
 evidence/artifacts/
-+-- sample_deliverable_docx.docx   # Word Document (Executive summary, findings grid, tables)
-+-- sample_deliverable_xlsx.xlsx   # Excel Workbook (Multi-sheet calculation tables)
-+-- sample_deliverable_pptx.pptx   # PowerPoint Briefing (5-slide formal presentation)
-+-- sample_deliverable_pdf.pdf     # Formatted PDF (Inspection sign-off sheet)
-+-- sample_deliverable_markdown.md # Plaintext report with provenance tags
-+-- sample_deliverable_json.json   # Machine-readable task manifest with typed findings
+├── sample_deliverable_docx.docx   # Word Document (Executive summary, findings grid, tables)
+├── sample_deliverable_xlsx.xlsx   # Excel Workbook (Multi-sheet calculation tables)
+├── sample_deliverable_pptx.pptx   # PowerPoint Briefing (5-slide formal presentation)
+├── sample_deliverable_pdf.pdf     # Formatted PDF (Inspection sign-off sheet)
+├── sample_deliverable_markdown.md # Plaintext report with provenance tags
+└── sample_deliverable_json.json   # Machine-readable task manifest with typed findings
 ```
 
 ---
 
-## ??? Technology Stack
+## 🛠️ Technology Stack
 
 ```mermaid
 flowchart LR
     subgraph Frontend["Frontend Layer"]
         R["React 19"]
         TS["TypeScript"]
-        V["Vite"]
+        V["Vite 8"]
         TW["TailwindCSS"]
         LU["Lucide Icons"]
     end
@@ -358,63 +358,63 @@ flowchart LR
 
 ---
 
-## ?? Repository Structure
+## 📂 Repository Structure
 
 ```
 Sovereign-AI/
-+-- src/sovereign/               # Core backend package (P00�P08)
-�   +-- core/                    # Domain models, agent host, router, qualification, authority
-�   �   +-- agent/               # ReAct host loop, parser, prompt builders
-�   �   +-- coding/              # Verifier logic & test harnesses
-�   �   +-- context/             # Context budget management & token allocation
-�   �   +-- qualification/       # Qualification engine, contracts, passport models
-�   �   +-- runtime/             # Model gateway, adapter interfaces, routing policies
-�   �   +-- state/               # Task lifecycle, findings, decisions, state models
-�   �   +-- tools/               # Tool registry, policy, and execution boundary
-�   +-- application/             # FastAPI REST / SSE routes & request schemas
-�   +-- infrastructure/          # llama.cpp adapter, SQLite repositories, document parsers, renderers
-�
-+-- frontend/                    # React 19 + TypeScript single-page application (P09)
-�   +-- src/                     # Workspaces: Chat, Coding, Knowledge, Artifacts, Tasks, Passports
-�
-+-- benchmarks/                  # Evaluation suites and empirical qualification data
-�   +-- evaluations/             # Final evaluation packages & metric analyses
-�   �   +-- llama_eval_20260919/ # Formal evaluation report, JSON metrics, CSV telemetry
-�   +-- qualification/           # Multi-model qualification scripts & pilot runners
-�   +-- results_full.jsonl       # Raw 150-trial coding benchmark records
-�   +-- tasks.json               # 50 industrial coding task specifications
-�
-+-- docs/                        # Complete technical documentation index
-�   +-- architecture/            # Baseline specifications (P00�P09)
-�   +-- evaluation/              # Benchmark methodology & evaluation protocol
-�   +-- runbooks/                # Live demonstration runbooks & validation reports
-�   +-- presentations/           # SIH 2026 slide decks and visual previews
-�   +-- INDEX.md                 # Master documentation directory
-�
-+-- evidence/                    # Empirical audit evidence & sample deliverables
-�   +-- artifacts/               # Sample validated deliverables (DOCX, XLSX, PPTX, PDF)
-�   +-- screenshots/             # 10 baseline UI workflow screenshots
-�   +-- logs/                    # Automated test logs and network socket audits
-�   +-- EVIDENCE_INDEX.md        # Master evidence index
-�
-+-- archive/                     # Historical experiments and archived scratch scripts
-�   +-- patches/                 # Archived developer patch scripts
-�
-+-- scripts/                     # Operational, diagnostic, and setup scripts
-+-- tests/                       # Automated Pytest suite (Unit, integration, governance tests)
-+-- run_server.py                # Backend application entrypoint
-+-- requirements.txt             # Production dependencies
-+-- .env.example                 # Environment configuration template
+├── src/sovereign/               # Core backend package (P00–P08)
+│   ├── core/                    # Domain models, agent host, router, qualification, authority
+│   │   ├── agent/               # ReAct host loop, parser, prompt builders
+│   │   ├── coding/              # Verifier logic & test harnesses
+│   │   ├── context/             # Context budget management & token allocation
+│   │   ├── qualification/       # Qualification engine, contracts, passport models
+│   │   ├── runtime/             # Model gateway, adapter interfaces, routing policies
+│   │   ├── state/               # Task lifecycle, findings, decisions, state models
+│   │   └── tools/               # Tool registry, policy, and execution boundary
+│   ├── application/             # FastAPI REST / SSE routes & request schemas
+│   └── infrastructure/          # llama.cpp adapter, SQLite repositories, document parsers, renderers
+│
+├── frontend/                    # React 19 + TypeScript single-page application (P09)
+│   └── src/                     # Workspaces: Chat, Coding, Knowledge, Artifacts, Tasks, Passports
+│
+├── benchmarks/                  # Evaluation suites and empirical qualification data
+│   ├── evaluations/             # Final evaluation packages & metric analyses
+│   │   └── llama_eval_20260919/ # Formal evaluation report, JSON metrics, CSV telemetry
+│   ├── qualification/           # Multi-model qualification scripts & pilot runners
+│   ├── results_full.jsonl       # Raw 150-trial coding benchmark records
+│   └── tasks.json               # 50 industrial coding task specifications
+│
+├── docs/                        # Complete technical documentation index
+│   ├── architecture/            # Baseline specifications (P00–P09)
+│   ├── evaluation/              # Benchmark methodology & evaluation protocol
+│   ├── runbooks/                # Live demonstration runbooks & validation reports
+│   ├── presentations/           # SIH 2026 slide decks and visual previews
+│   └── INDEX.md                 # Master documentation directory
+│
+├── evidence/                    # Empirical audit evidence & sample deliverables
+│   ├── artifacts/               # Sample validated deliverables (DOCX, XLSX, PPTX, PDF)
+│   ├── screenshots/             # 10 baseline UI workflow screenshots
+│   ├── logs/                    # Automated test logs and network socket audits
+│   └── EVIDENCE_INDEX.md        # Master evidence index
+│
+├── archive/                     # Historical experiments and archived scratch scripts
+│   └── patches/                 # Archived developer patch scripts
+│
+├── scripts/                     # Operational, diagnostic, and setup scripts
+├── tests/                       # Automated Pytest suite (Unit, integration, governance tests)
+├── run_server.py                # Backend application entrypoint
+├── requirements.txt             # Production dependencies
+└── .env.example                 # Environment configuration template
 ```
 
 ---
 
-## ? Quick Start
+## ⚡ Quick Start
 
 ### Prerequisites
 * **Operating System:** Windows 10 / 11 (64-bit)
 * **Python:** 3.11+
-* **Node.js:** 18+ (for React frontend)
+* **Node.js:** 20+ (recommended for React 19 and Vite 8)
 * **Local Inference Runtime:** `llama-server.exe` (from [llama.cpp releases](https://github.com/ggerganov/llama.cpp/releases))
 * **Model Weights:** Quantized GGUF model (e.g., `Llama-3.2-3B-Instruct-Q4_K_M.gguf`)
 
@@ -461,23 +461,23 @@ pytest tests/test_agent_host.py tests/test_agent_parser.py tests/test_context_ma
 
 ---
 
-## ?? Documentation Index
+## 📖 Documentation Index
 
 For in-depth architectural specifications, mathematical formulations, runbooks, and audit reports, refer to the authoritative documentation suite:
 
-* ??? [**System Architecture Specification (P00�P09)**](docs/architecture/system-architecture.md)
-* ?? [**Moonshot Innovation Audit: The Governance Triad**](docs/architecture/INNOVATION_MOON_AUDIT.md)
-* ?? [**Empirical Benchmark & Evaluation Methodology**](docs/evaluation/BENCHMARK_METHODOLOGY.md)
-* ?? [**Final Evaluation Report & Metrics Breakdown**](benchmarks/evaluations/llama_eval_20260919/evaluation_report.md)
-* ?? [**SIH 2026 Live Demo Runbook**](docs/runbooks/SOVEREIGN_AI_SIH_DEMO_RUNBOOK.md)
-* ?? [**Master Evidence Index & UI Screenshots**](evidence/EVIDENCE_INDEX.md)
-* ?? [**Master Documentation Hub**](docs/INDEX.md)
+* 🏛️ [**System Architecture Specification (P00–P09)**](docs/architecture/system-architecture.md)
+* ⚖️ [**Moonshot Innovation Audit: The Governance Triad**](docs/architecture/INNOVATION_MOON_AUDIT.md)
+* 📊 [**Empirical Benchmark & Evaluation Methodology**](docs/evaluation/BENCHMARK_METHODOLOGY.md)
+* 📑 [**Final Evaluation Report & Metrics Breakdown**](benchmarks/evaluations/llama_eval_20260919/evaluation_report.md)
+* 🎬 [**SIH 2026 Live Demo Runbook**](docs/runbooks/SOVEREIGN_AI_SIH_DEMO_RUNBOOK.md)
+* 🔍 [**Master Evidence Index & UI Screenshots**](evidence/EVIDENCE_INDEX.md)
+* 📚 [**Master Documentation Hub**](docs/INDEX.md)
 
 ---
 
 <div align="center">
 
-**Sovereign AI Workbench � Built for Confidential Industrial Intelligence**  
+**Sovereign AI Workbench — Built for Confidential Industrial Intelligence**  
 *Developed for Smart India Hackathon (SIH) 2026*
 
 </div>
