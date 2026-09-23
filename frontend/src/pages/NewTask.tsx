@@ -223,21 +223,21 @@ export function NewTask() {
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="text-xs text-slate-500 flex items-center gap-2">
-            <Layers className="w-4 h-4 text-slate-600" />
-            <span>Executes through Characterizer (P05) → Qualification (P08) → Evidence (P03) → Artifact Engine (P06)</span>
+          <div className="text-xs text-slate-400 flex items-center gap-2">
+            <Layers className="w-4 h-4 text-cyan-400" />
+            <span>Executes through: Characterization → Qualification Gating → Evidence Grounding → Governed Execution → Artifact Engine</span>
           </div>
           <button
             type="submit"
             disabled={isSubmitting || !title.trim() || !goal.trim()}
-            className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-2.5 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-2.5 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-sm"
           >
             {isSubmitting ? (
               <span className="animate-pulse">Submitting Task...</span>
             ) : (
               <>
                 <Play className="w-4 h-4" />
-                Submit & Execute Task
+                Submit &amp; Execute Task
               </>
             )}
           </button>

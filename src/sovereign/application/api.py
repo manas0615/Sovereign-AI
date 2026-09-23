@@ -18,7 +18,8 @@ from sovereign.core.exceptions import ContextBudgetExceeded, StateError, Infrast
 from sovereign.application.schemas import (
     TaskCreateRequest, TaskResponse, ArtifactMetadataResponse, DocumentIngestResponse,
     CapabilityPassportResponse, DocumentDetailResponse, DocumentChunkResponse,
-    ChatRequest, ChatResponse, CodeExecuteRequest, CodeExecuteResponse
+    ChatRequest, ChatResponse, CodeExecuteRequest, CodeExecuteResponse,
+    NetworkTelemetryResponse
 )
 from sovereign.application.services import get_app_service
 from sovereign.application.config import get_api_settings
@@ -287,6 +288,18 @@ def list_passports():
     """Retrieve all registered capability passports."""
     svc = get_app_service()
     return svc.list_passports()
+
+@router.get("/telemetry/network", response_model=NetworkTelemetryResponse)
+def get_network_telemetry():
+    """Live socket observation telemetry across monitored processes."""
+    svc = get_app_service()
+    return svc.get_network_telemetry()
+
+@router.post("/demo/reset")
+def reset_demo_workspace():
+    """Clean reset for repeatable demo execution without touching permanent benchmark evidence."""
+    svc = get_app_service()
+    return svc.reset_demo_tasks()
 
 # Global Exception Handlers
 @app.exception_handler(ContextBudgetExceeded)

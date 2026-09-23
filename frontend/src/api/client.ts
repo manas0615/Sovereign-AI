@@ -105,7 +105,15 @@ export const api = {
       method: 'POST',
       body: formData
     });
-  }
+  },
+
+  getNetworkTelemetry: () =>
+    fetchApi<import('../types/api').NetworkTelemetryResponse>('/telemetry/network'),
+
+  resetDemoWorkspace: () =>
+    fetchApi<{status: string, message: string}>('/demo/reset', {
+      method: 'POST'
+    })
 };
 
 

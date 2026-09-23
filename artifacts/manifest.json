@@ -2087,5 +2087,521 @@
       ],
       "content_hash": "2d80f4350be30e23fd3f957d4042b01a51912e483fa355d0e5e92f1f1f5fbe5a"
     }
+  },
+  "art-b04eb6ab": {
+    "artifact_id": "art-b04eb6ab",
+    "task_id": "task-c3c67274",
+    "title": "Task Report - Executive Approval Note for V-204 Inspection",
+    "type": "MARKDOWN",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T12:46:36.724010Z",
+    "updated_at": "2026-09-23T12:46:36.724010Z",
+    "source_references": [
+      {
+        "source_id": "doc-2c6e9636",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-3611d2b9",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-96a66a1e",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-880cd376",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-90dba883",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-e1c4725f",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-c6169b21",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-687bc081",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-b4f08d01",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-10095e2b",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-c3c67274_art-b04eb6ab.md",
+      "size_bytes": 1098,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence"
+      ],
+      "content_hash": "6c6665427a44c965874fd1cc8b3ffe6d9d65ea344dae8a490e584dbe060adcea"
+    }
+  },
+  "art-da7aa5a7": {
+    "artifact_id": "art-da7aa5a7",
+    "task_id": "task-c3c67274",
+    "title": "Approval Note - Executive Approval Note for V-204 Inspection",
+    "type": "DOCX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T12:46:37.024170Z",
+    "updated_at": "2026-09-23T12:46:37.024170Z",
+    "source_references": [
+      {
+        "source_id": "doc-2c6e9636",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-3611d2b9",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-96a66a1e",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-880cd376",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-90dba883",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-e1c4725f",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-c6169b21",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-687bc081",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-b4f08d01",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-10095e2b",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-c3c67274_art-da7aa5a7.docx",
+      "size_bytes": 38068,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "limitations"
+      ],
+      "content_hash": "7e5786341e681e6baddf586bdcf60fddb6089bbfe683c9be2719c8d196e9205d"
+    }
+  },
+  "art-1e5d9f30": {
+    "artifact_id": "art-1e5d9f30",
+    "task_id": "task-c3c67274",
+    "title": "Industrial Data Sheet - Executive Approval Note for V-204 Inspection",
+    "type": "XLSX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T12:46:37.213175Z",
+    "updated_at": "2026-09-23T12:46:37.213175Z",
+    "source_references": [
+      {
+        "source_id": "doc-2c6e9636",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-3611d2b9",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-96a66a1e",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-880cd376",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-90dba883",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-e1c4725f",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-c6169b21",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-687bc081",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-b4f08d01",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-10095e2b",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-c3c67274_art-1e5d9f30.xlsx",
+      "size_bytes": 7642,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "decisions"
+      ],
+      "content_hash": "b386970f0dfc0ae645fcfc0153431a3b91e5212046287c0ff4fb2a7879636a0b"
+    }
+  },
+  "art-155b5dad": {
+    "artifact_id": "art-155b5dad",
+    "task_id": "task-c3c67274",
+    "title": "Executive Briefing - Executive Approval Note for V-204 Inspection",
+    "type": "PPTX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T12:46:37.542524Z",
+    "updated_at": "2026-09-23T12:46:37.542524Z",
+    "source_references": [
+      {
+        "source_id": "doc-2c6e9636",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-3611d2b9",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-96a66a1e",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-880cd376",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-90dba883",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-e1c4725f",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-c6169b21",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-687bc081",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      },
+      {
+        "source_id": "doc-b4f08d01",
+        "locator": "N/A",
+        "metadata": {
+          "chunk_id": "chk-10095e2b",
+          "text": "INSPECTION REPORT\nEquipment ID: V-204\nDate: 2026-09-13\nObserved condition: Critical seal wear detected on main flange.\nMeasurement: 0.15mm clearance\nThreshold: 0.10mm max\nFinding: Fails safety tolerance.\nRecommended action: Replace main flange seal immediately before resuming operation.",
+          "score": 2.785240273014349
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-c3c67274_art-155b5dad.pptx",
+      "size_bytes": 32765,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "decisions",
+        "limitations"
+      ],
+      "content_hash": "dc19675659373a2842f99c797349fb6916e56b3e28c25a2fbb6bb9e0e41494ef"
+    }
+  },
+  "art-f569e744": {
+    "artifact_id": "art-f569e744",
+    "task_id": "task-9f38e865",
+    "title": "Task Report - Executive Approval Note for V-204 Inspection",
+    "type": "MARKDOWN",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T12:52:07.174448Z",
+    "updated_at": "2026-09-23T12:52:07.174448Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-9f38e865_art-f569e744.md",
+      "size_bytes": 467,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence"
+      ],
+      "content_hash": "0935e68eabf70a117241a29b668cd9b01a01a5af5b0cb93579e85bf6a8de15d0"
+    }
+  },
+  "art-a3f1d873": {
+    "artifact_id": "art-a3f1d873",
+    "task_id": "task-9f38e865",
+    "title": "Approval Note - Executive Approval Note for V-204 Inspection",
+    "type": "DOCX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T12:52:07.371895Z",
+    "updated_at": "2026-09-23T12:52:07.371895Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-9f38e865_art-a3f1d873.docx",
+      "size_bytes": 37639,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "limitations"
+      ],
+      "content_hash": "5b5d02a60916309b7f37a6f01844f9a77cd239e4ee7fdb263bfc0b0d9ca5102c"
+    }
+  },
+  "art-83ec099c": {
+    "artifact_id": "art-83ec099c",
+    "task_id": "task-9f38e865",
+    "title": "Industrial Data Sheet - Executive Approval Note for V-204 Inspection",
+    "type": "XLSX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T12:52:07.471750Z",
+    "updated_at": "2026-09-23T12:52:07.472828Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-9f38e865_art-83ec099c.xlsx",
+      "size_bytes": 7415,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "decisions"
+      ],
+      "content_hash": "469f42567d169c75a32445e6b04e359f43cc6e46b7e7d8b429f7139f20a0edff"
+    }
+  },
+  "art-4ab7c664": {
+    "artifact_id": "art-4ab7c664",
+    "task_id": "task-9f38e865",
+    "title": "Executive Briefing - Executive Approval Note for V-204 Inspection",
+    "type": "PPTX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T12:52:07.907857Z",
+    "updated_at": "2026-09-23T12:52:07.907857Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-9f38e865_art-4ab7c664.pptx",
+      "size_bytes": 32475,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "decisions",
+        "limitations"
+      ],
+      "content_hash": "55061de6533d926f907b970f4229a570050a8f8bd75a7b617eecb4fbef6b8269"
+    }
+  },
+  "art-aa751709": {
+    "artifact_id": "art-aa751709",
+    "task_id": "task-ed40afb0",
+    "title": "Task Report - Automated Coding & Verification Task",
+    "type": "MARKDOWN",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T13:04:31.759469Z",
+    "updated_at": "2026-09-23T13:04:31.759469Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-ed40afb0_art-aa751709.md",
+      "size_bytes": 900,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence"
+      ],
+      "content_hash": "72ee80048cd32ce187b03da5b1374a7f9db918bd0e158b8916623e064843270a"
+    }
+  },
+  "art-95686333": {
+    "artifact_id": "art-95686333",
+    "task_id": "task-ed40afb0",
+    "title": "Approval Note - Automated Coding & Verification Task",
+    "type": "DOCX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T13:04:35.414516Z",
+    "updated_at": "2026-09-23T13:04:35.414516Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-ed40afb0_art-95686333.docx",
+      "size_bytes": 37737,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "limitations"
+      ],
+      "content_hash": "3fd6ab19ba69c7f4493176be2c1e761d2c0524fbf53317cfa6b7759c4b1cb3f4"
+    }
+  },
+  "art-77f526be": {
+    "artifact_id": "art-77f526be",
+    "task_id": "task-59f3f86b",
+    "title": "Task Report - Automated Coding & Verification Task",
+    "type": "MARKDOWN",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T13:05:44.158338Z",
+    "updated_at": "2026-09-23T13:05:44.158338Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-59f3f86b_art-77f526be.md",
+      "size_bytes": 691,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence"
+      ],
+      "content_hash": "79262ed0b7fd022ebcec33e2ba3c1cd4f581f4df9574a7b4d4e990a86ab51f30"
+    }
+  },
+  "art-aaf1a79a": {
+    "artifact_id": "art-aaf1a79a",
+    "task_id": "task-59f3f86b",
+    "title": "Approval Note - Automated Coding & Verification Task",
+    "type": "DOCX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T13:05:44.376633Z",
+    "updated_at": "2026-09-23T13:05:44.376633Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-59f3f86b_art-aaf1a79a.docx",
+      "size_bytes": 37743,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "limitations"
+      ],
+      "content_hash": "ed3a17717cf8d5ea503cbf9680e32defb2ec53f247f034ec3d5dce57aeb01261"
+    }
+  },
+  "art-63ea2e57": {
+    "artifact_id": "art-63ea2e57",
+    "task_id": "task-d84d514f",
+    "title": "Task Report - Automated Coding & Verification Task",
+    "type": "MARKDOWN",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T13:10:10.083200Z",
+    "updated_at": "2026-09-23T13:10:10.083200Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-d84d514f_art-63ea2e57.md",
+      "size_bytes": 1149,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence"
+      ],
+      "content_hash": "dbec57c98e7a35d38dd2073b89f18687d0027603d2854569395359cc0c95fe6d"
+    }
+  },
+  "art-7be14fd8": {
+    "artifact_id": "art-7be14fd8",
+    "task_id": "task-d84d514f",
+    "title": "Approval Note - Automated Coding & Verification Task",
+    "type": "DOCX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T13:10:10.488291Z",
+    "updated_at": "2026-09-23T13:10:10.488291Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-d84d514f_art-7be14fd8.docx",
+      "size_bytes": 38006,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "limitations"
+      ],
+      "content_hash": "c70090dd70c62ee855c1ddbafb72dcf4e783f145aabce73ac7f006b8d36da8f9"
+    }
+  },
+  "art-21266bf2": {
+    "artifact_id": "art-21266bf2",
+    "task_id": "task-03c21f35",
+    "title": "Task Report - Automated Coding & Verification Task",
+    "type": "MARKDOWN",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T13:11:07.610632Z",
+    "updated_at": "2026-09-23T13:11:07.610632Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-03c21f35_art-21266bf2.md",
+      "size_bytes": 1845,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence"
+      ],
+      "content_hash": "3288a13d7ef1c4e2c7450232f361e6187d27f56a21b583efce16f48b2c94d5b2"
+    }
+  },
+  "art-e9d70f06": {
+    "artifact_id": "art-e9d70f06",
+    "task_id": "task-03c21f35",
+    "title": "Approval Note - Automated Coding & Verification Task",
+    "type": "DOCX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-23T13:11:07.754350Z",
+    "updated_at": "2026-09-23T13:11:07.754350Z",
+    "source_references": [],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-03c21f35_art-e9d70f06.docx",
+      "size_bytes": 38088,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "limitations"
+      ],
+      "content_hash": "c7394a267071e9e04a0edae85225b6b97657b1bfad1b1e398f7e965ec2699333"
+    }
   }
 }

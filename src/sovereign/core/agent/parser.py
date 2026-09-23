@@ -25,10 +25,21 @@ class ModelOutputParser:
             if start != -1 and end != -1 and start < end:
                 text = text[start:end+1]
                 
+        data = None
         try:
-            data = json.loads(text)
-        except json.JSONDecodeError as e:
-            raise ValueError(f"Malformed JSON: {e}")
+            data = json.loads(text, strict=False)
+        except json.JSONDecodeError:
+            try:
+                cleaned = re.sub(r'(?<!\\)\r?\n', r'\\n', text)
+                data = json.loads(cleaned, strict=False)
+            except Exception:
+                pass
+
+        if data is None:
+            try:
+                data = json.loads(text)
+            except json.JSONDecodeError as e:
+                raise ValueError(f"Malformed JSON: {e}")
             
         try:
             decision = AgentDecision(**data)

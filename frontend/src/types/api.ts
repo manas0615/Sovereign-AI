@@ -218,4 +218,28 @@ export interface TrustManifestResponse {
   };
 }
 
+export interface NetworkConnectionItem {
+  pid: number;
+  process: string;
+  laddr: string;
+  raddr: string;
+  status: string;
+  is_loopback: boolean;
+}
+
+export interface NetworkTelemetryResponse {
+  status: 'LOCAL_LOOPBACK_ONLY' | 'NON_LOOPBACK_OBSERVED' | 'UNAVAILABLE';
+  observed_non_loopback_connections: number;
+  observed_local_sockets: number;
+  monitored_processes_count: number;
+  monitored_processes: string[];
+  connections: NetworkConnectionItem[];
+  model_runtime_host: string;
+  knowledge_base_type: string;
+  artifact_storage_type: string;
+  disclaimer: string;
+  error?: string | null;
+  timestamp: string;
+}
+
 

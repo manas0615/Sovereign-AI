@@ -11,7 +11,8 @@ class ExecutePythonInput(BaseModel):
 
 def get_execute_python_tool(
     execution_boundary: Optional[ExecutionBoundary] = None,
-    workspace: Optional[TaskWorkspace] = None
+    workspace: Optional[TaskWorkspace] = None,
+    name: str = "execute_python"
 ) -> ToolImplementation:
     boundary = execution_boundary or ExecutionBoundary()
     ws = workspace or WorkspaceManager().get_or_create("default")
@@ -24,8 +25,8 @@ def get_execute_python_tool(
         )
 
     definition = ToolDefinition(
-        tool_id="core-exec-001",
-        name="execute_python",
+        tool_id="core-exec-001" if name == "execute_python" else "core-exec-001-alias",
+        name=name,
         description="Executes Python code in a restricted execution environment with hard timeout, sanitized environment, and output bounding.",
         input_schema=ExecutePythonInput.model_json_schema(),
         output_schema={

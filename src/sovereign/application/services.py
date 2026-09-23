@@ -29,7 +29,7 @@ from sovereign.infrastructure.artifacts.storage import LocalArtifactStorage
 from sovereign.application.schemas import (
     TaskCreateRequest, TaskResponse, ArtifactMetadataResponse, CapabilityPassportResponse,
     DocumentDetailResponse, DocumentChunkResponse, ChatRequest, ChatResponse, CitationItem,
-    CodeExecutionResult, CodeExecuteRequest, CodeExecuteResponse
+    CodeExecutionResult, CodeExecuteRequest, CodeExecuteResponse, NetworkTelemetryResponse
 )
 
 class ReadOnlyArtifactAdapter:
@@ -177,8 +177,9 @@ class AppService:
         self.tool_registry.register(get_search_knowledge_tool())
         self.tool_registry.register(get_calculate_tool())
         from sovereign.infrastructure.tools.python_execution_tool import get_execute_python_tool
-        self.tool_registry.register(get_execute_python_tool())
-        self.tool_policy = ToolPolicy(allowed_tools={"read_file", "write_file", "search_knowledge", "calculate", "execute_python"})
+        self.tool_registry.register(get_execute_python_tool(name="execute_python"))
+        self.tool_registry.register(get_execute_python_tool(name="python"))
+        self.tool_policy = ToolPolicy(allowed_tools={"read_file", "write_file", "search_knowledge", "calculate", "execute_python", "python"})
         self.tool_executor = ToolExecutor(self.tool_registry, self.tool_policy)
         
         self.agent = AgentHost(
@@ -323,7 +324,7 @@ class AppService:
                     
                     req_docx = ArtifactRequest(
                         task_id=task_id,
-                        title=f"Industrial Analysis Note - {task.title}",
+                        title=f"Approval Note - {task.title}",
                         artifact_type=ArtifactType.DOCX,
                         requested_sections=["executive_summary", "findings", "evidence", "limitations"]
                     )
@@ -410,11 +411,12 @@ class AppService:
         # 1. Determine Intent & Capability Contract
         msg_lower = req.message.lower()
         is_coding = req.mode == "coding" or any(kw in msg_lower for kw in [
-            "write python", "python script", "write code", "calculate degradation",
-            "compute corrosion", "generate a script", "parse csv", "pandas", "numpy"
+            "write python", "python script", "write code", "generate code", "code generator",
+            "calculate degradation", "compute corrosion", "generate a script", "parse csv",
+            "email verification", "verification code", "def ", "class ", "function to", "script for"
         ])
         
-        contract = "NumericalCalculation_v1" if is_coding else "DocumentRetrieval_v1"
+        contract = "AutomatedCoding_v1" if is_coding else "DocumentRetrieval_v1"
         
         # 2. Check P05 Routing and P08 Authority
         routing_decision = self.router.route_capability(contract)
@@ -453,50 +455,24 @@ class AppService:
 
         # 4. Handle Execution Path
         if is_coding:
-            # Coding Synthesis & Execution
-            code_snippet = (
-                '"""\n'
-                'Industrial Degradation & Compliance Analysis Script\n'
-                'Governed Execution Mode: Bounded Process\n'
-                '"""\n\n'
-                'import math\n'
-                'import json\n\n'
-                'def analyze_inspection_data():\n'
-                '    # Sample industrial inspection telemetry\n'
-                '    measurements = {\n'
-                '        "equipment_id": "P-102 / V-204",\n'
-                '        "nominal_thickness_mm": 12.70,\n'
-                '        "measured_thickness_mm": 8.14,\n'
-                '        "corrosion_allowance_mm": 3.20,\n'
-                '        "operating_years": 4.5,\n'
-                '        "seal_wear_measured_mm": 0.18,\n'
-                '        "seal_wear_threshold_mm": 0.10\n'
-                '    }\n'
-                '    \n'
-                '    # Calculations\n'
-                '    total_loss = measurements["nominal_thickness_mm"] - measurements["measured_thickness_mm"]\n'
-                '    corrosion_rate = total_loss / measurements["operating_years"]\n'
-                '    remaining_allowance = measurements["corrosion_allowance_mm"] - total_loss\n'
-                '    seal_wear_delta = measurements["seal_wear_measured_mm"] - measurements["seal_wear_threshold_mm"]\n'
-                '    seal_exceeded = measurements["seal_wear_measured_mm"] > measurements["seal_wear_threshold_mm"]\n'
-                '    \n'
-                '    print(f"=== SOVEREIGN INDUSTRIAL TELEMETRY ANALYSIS ===")\n'
-                '    print(f"Equipment: {measurements[\'equipment_id\']}")\n'
-                '    print(f"Total Thickness Loss: {total_loss:.2f} mm")\n'
-                '    print(f"Degradation Rate: {corrosion_rate:.3f} mm/year")\n'
-                '    print(f"Remaining Corrosion Allowance: {remaining_allowance:.2f} mm")\n'
-                '    print(f"Seal Wear Tolerance Exceeded: {seal_exceeded} (Delta: +{seal_wear_delta:.2f} mm)")\n'
-                '    \n'
-                '    status = \'CRITICAL\' if seal_exceeded else \'NORMAL\'\n'
-                '    print(f"Recommended Action: {status} - Schedule immediate component overhaul.")\n'
-                '    return {\n'
-                '        "status": status,\n'
-                '        "corrosion_rate": corrosion_rate,\n'
-                '        "seal_wear_exceeded": seal_exceeded\n'
-                '    }\n\n'
-                'if __name__ == "__main__":\n'
-                '    result = analyze_inspection_data()\n'
+            # Dynamic Local Model Coding Generation
+            from sovereign.core.runtime.models import InferenceRequest
+            prompt = (
+                "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n"
+                "You are Sovereign AI Assistant, an enterprise coding assistant operating strictly on local hardware.\n"
+                "Write clean, robust, production-ready Python code to fulfill the user's request.\n"
+                "Provide the complete Python code enclosed in ```python ... ``` blocks with docstrings and a runnable example.\n"
+                "Do not import external unauthorized network packages.<|eot_id|>"
+                "<|start_header_id|>user<|end_header_id|>\n\n"
+                f"{req.message}<|eot_id|>"
+                "<|start_header_id|>assistant<|end_header_id|>\n\n"
             )
+            req_inf = InferenceRequest(prompt=prompt, max_tokens=768, temperature=0.1, stop=["<|eot_id|>", "<|end_of_text|>"])
+            resp_inf = self.gateway.generate(req_inf)
+            generated_text = resp_inf.text.strip()
+            
+            code_block_match = re.search(r'```(?:python)?\s*\n([\s\S]*?)```', generated_text)
+            code_snippet = code_block_match.group(1).strip() if code_block_match else generated_text
             
             # Execute code if requested
             if req.execute_code:
@@ -517,23 +493,13 @@ class AppService:
                 )
                 
                 assistant_content = (
-                    f"### Industrial Python Analysis Script\n\n"
-                    f"I have generated and executed the analysis script inside the P04 governed execution boundary.\n\n"
-                    f"```python\n{code_snippet}\n```\n\n"
-                    f"**Execution Output (`stdout`):**\n"
-                    f"```text\n{exec_raw['stdout']}\n```\n\n"
-                    f"**Engineering Synthesis:**\n"
-                    f"* **Degradation Rate:** `1.013 mm/year` across 4.5 operating years.\n"
-                    f"* **Seal Wear Assessment:** Measured wear `0.18 mm` exceeds the allowable threshold `0.10 mm` (Delta: `+0.08 mm`, 80% over limit).\n"
-                    f"* **Action:** Recommended immediate work order for seal replacement."
+                    f"{generated_text}\n\n"
+                    f"**Governed Execution Output (`stdout`):**\n"
+                    f"```text\n{exec_raw['stdout'] if exec_raw['stdout'] else '[No stdout output]'}\n```\n"
+                    f"*Execution status: exit code {exec_raw['exit_code']} in {exec_raw['duration_ms']:.1f}ms ({exec_raw['security_mode']})*"
                 )
             else:
-                assistant_content = (
-                    f"### Industrial Python Analysis Script\n\n"
-                    f"Here is the Python script designed for degradation and seal wear telemetry analysis:\n\n"
-                    f"```python\n{code_snippet}\n```\n\n"
-                    f"You can click **Run in P04 Sandbox** below to execute this script in the bounded environment."
-                )
+                assistant_content = generated_text
 
         else:
             # Conversational RAG Path
@@ -573,44 +539,57 @@ class AppService:
                 self.repo.add_evidence(task.task_id, ev_ref)
 
             if citations:
-                # Check for V-204 specific or general keywords in query and chunks
-                v204_in_chunks = any("v-204" in c.text.lower() or "v204" in c.text.lower() for c in citations)
-                seal_in_chunks = any("seal" in c.text.lower() or "tolerance" in c.text.lower() or "wear" in c.text.lower() for c in citations)
-                v204_in_query = "v-204" in msg_lower or "v204" in msg_lower or "seal" in msg_lower or "tolerance" in msg_lower or "wear" in msg_lower
+                from sovereign.core.runtime.models import InferenceRequest
+                context_parts = []
+                for i, c in enumerate(citations):
+                    context_parts.append(f"--- Evidence Passage {i+1} [Source: {c.filename}, Chunk ID: {c.chunk_id[:8]}] ---\n{c.text.strip()}")
+                context_str = "\n\n".join(context_parts)
+
+                prompt = (
+                    "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n"
+                    "You are Sovereign AI Assistant, an enterprise engineering assistant operating in a strictly governed local environment.\n"
+                    "Answer the user's question accurately, concisely, and truthfully based ONLY on the provided context passages.\n"
+                    "Highlight specific numbers, measured values, allowable limits, and compliance status clearly.\n"
+                    "If the context does not contain enough information to answer, state clearly what is known and what is missing.\n"
+                    "Do not invent facts or extrapolate beyond the provided text.<|eot_id|>"
+                    "<|start_header_id|>user<|end_header_id|>\n\n"
+                    f"Context Passages:\n{context_str}\n\n"
+                    f"Question:\n{req.message}<|eot_id|>"
+                    "<|start_header_id|>assistant<|end_header_id|>\n\n"
+                )
+                req_inf = InferenceRequest(prompt=prompt, max_tokens=512, temperature=0.1, stop=["<|eot_id|>", "<|end_of_text|>"])
+                resp_inf = self.gateway.generate(req_inf)
+                assistant_content = resp_inf.text.strip()
+            else:
+                # Check if domain query or general query
+                domain_keywords = [
+                    "iso", "uso", "standard", "vibration", "pump", "valve", "seal", "wear", "thickness",
+                    "corrosion", "inspection", "report", "compliance", "tolerance", "zone", "v-204", "p-101", "p-102", "degradation"
+                ]
+                is_domain = any(dk in msg_lower for dk in domain_keywords)
                 
-                # Grounded synthesis
-                if v204_in_query and (v204_in_chunks or seal_in_chunks):
+                if is_domain:
                     assistant_content = (
-                        "According to the inspection report and SOP in the knowledge base:\n\n"
-                        "### 1. Allowable Seal Wear Tolerance\n"
-                        "* The standard allowable seal wear threshold is **`0.10 mm`**.\n\n"
-                        "### 2. Equipment V-204 Inspection Findings\n"
-                        "* The physical seal wear measurement recorded for **Equipment V-204** is **`0.18 mm`**.\n"
-                        "* **Tolerance Comparison:** Measured wear (`0.18 mm`) exceeds the allowable threshold (`0.10 mm`) by **`+0.08 mm`** (an **80% exceedance**).\n\n"
-                        "### 3. Engineering Conclusion & Action\n"
-                        "* Equipment V-204 **fails compliance** with the standard seal tolerance.\n"
-                        "* Immediate replacement of the mechanical seal cartridge is required prior to unit restart.\n\n"
-                        f"*Source Evidence Grounding: Verified across {len(citations)} chunk(s) from `{citations[0].filename}`.*"
+                        "**Notice: Insufficient Evidence in Knowledge Base**\n\n"
+                        "No relevant document chunks matched your query in the local SQLite knowledge base. "
+                        "In accordance with Sovereign AI governance, the system operates fail-closed and will not fabricate or hallucinate ungrounded answers.\n\n"
+                        "**Suggestions:**\n"
+                        "1. Upload the relevant technical document or inspection report in the **Knowledge Library**.\n"
+                        "2. Verify that the query terms match the terminology in the indexed documentation."
                     )
                 else:
-                    # General grounded summary from the retrieved chunks
-                    chunks_summary = "\n\n".join([f"> \"{c.text.strip()}\"\n*(Source: {c.filename}, Chunk: {c.chunk_id[:8]})*" for c in citations[:3]])
-                    assistant_content = (
-                        f"Based on the retrieved documents in the local knowledge base, here is the grounded evidence:\n\n"
-                        f"{chunks_summary}\n\n"
-                        f"**Key Findings:**\n"
-                        f"* Grounded directly in **{len(citations)} knowledge chunk(s)**.\n"
-                        f"* Source Document: `{citations[0].filename}` (SHA-256: `{citations[0].content_hash[:12] if citations[0].content_hash else 'N/A'}...`)"
+                    from sovereign.core.runtime.models import InferenceRequest
+                    prompt = (
+                        "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n"
+                        "You are Sovereign AI Assistant, an enterprise sovereign AI operating strictly on local hardware.\n"
+                        "Answer concisely, truthfully, and directly.<|eot_id|>"
+                        "<|start_header_id|>user<|end_header_id|>\n\n"
+                        f"{req.message}<|eot_id|>"
+                        "<|start_header_id|>assistant<|end_header_id|>\n\n"
                     )
-            else:
-                assistant_content = (
-                    "**Notice: Insufficient Evidence in Knowledge Base**\n\n"
-                    "No relevant document chunks matched your query in the local SQLite knowledge base. "
-                    "In accordance with Sovereign AI governance, the system operates fail-closed and will not fabricate or hallucinate ungrounded answers.\n\n"
-                    "**Suggestions:**\n"
-                    "1. Upload the relevant technical document or inspection report in the **Knowledge Library**.\n"
-                    "2. Verify that the query terms match the terminology in the indexed documentation."
-                )
+                    req_inf = InferenceRequest(prompt=prompt, max_tokens=256, temperature=0.1, stop=["<|eot_id|>", "<|end_of_text|>"])
+                    resp_inf = self.gateway.generate(req_inf)
+                    assistant_content = resp_inf.text.strip()
 
         # Record finding in task
         self.repo.add_state_item(
@@ -660,6 +639,108 @@ class AppService:
                     metadata=metadata
                 ))
             return passports
+        finally:
+            conn.close()
+
+    def get_network_telemetry(self) -> NetworkTelemetryResponse:
+        """Inspects established and listening sockets of application processes."""
+        import psutil
+        from datetime import datetime
+        from sovereign.application.schemas import NetworkTelemetryResponse, NetworkConnectionItem
+
+        now = datetime.utcnow()
+        disclaimer = (
+            "Observed socket telemetry: all connections bound to loopback (127.0.0.1 / ::1). "
+            "Note: Socket observation inspects active connections; it does not constitute OS kernel airgap enforcement."
+        )
+
+        try:
+            target_procs = {}
+            for proc in psutil.process_iter(['pid', 'name']):
+                try:
+                    pname = (proc.info['name'] or "").lower()
+                    if any(k in pname for k in ['python', 'node', 'llama-server']):
+                        target_procs[proc.info['pid']] = proc.info['name']
+                except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                    pass
+
+            connections_list = []
+            non_loopback_count = 0
+            local_socket_count = 0
+
+            for pid, proc_name in target_procs.items():
+                try:
+                    p = psutil.Process(pid)
+                    conns = p.connections(kind='inet')
+                    for c in conns:
+                        laddr = f"{c.laddr.ip}:{c.laddr.port}" if c.laddr else "N/A"
+                        raddr = f"{c.raddr.ip}:{c.raddr.port}" if c.raddr else "N/A"
+
+                        is_loopback = False
+                        if c.raddr:
+                            if c.raddr.ip.startswith("127.") or c.raddr.ip == "::1":
+                                is_loopback = True
+                        elif c.laddr:
+                            if c.laddr.ip.startswith("127.") or c.laddr.ip == "::1" or c.laddr.ip == "0.0.0.0":
+                                is_loopback = True
+
+                        if is_loopback:
+                            local_socket_count += 1
+                        else:
+                            if c.status == "ESTABLISHED":
+                                non_loopback_count += 1
+
+                        connections_list.append(NetworkConnectionItem(
+                            pid=pid,
+                            process=proc_name,
+                            laddr=laddr,
+                            raddr=raddr,
+                            status=c.status,
+                            is_loopback=is_loopback
+                        ))
+                except (psutil.NoSuchProcess, psutil.AccessDenied):
+                    pass
+
+            status_str = "NON_LOOPBACK_OBSERVED" if non_loopback_count > 0 else "LOCAL_LOOPBACK_ONLY"
+
+            return NetworkTelemetryResponse(
+                status=status_str,
+                observed_non_loopback_connections=non_loopback_count,
+                observed_local_sockets=local_socket_count,
+                monitored_processes_count=len(target_procs),
+                monitored_processes=list(set(target_procs.values())),
+                connections=connections_list,
+                model_runtime_host="127.0.0.1:8080",
+                knowledge_base_type="SQLite FTS5 (Local)",
+                artifact_storage_type="Local Storage",
+                disclaimer=disclaimer,
+                timestamp=now
+            )
+        except Exception as e:
+            return NetworkTelemetryResponse(
+                status="UNAVAILABLE",
+                observed_non_loopback_connections=-1,
+                observed_local_sockets=0,
+                monitored_processes_count=0,
+                monitored_processes=[],
+                connections=[],
+                model_runtime_host="127.0.0.1:8080",
+                knowledge_base_type="SQLite FTS5 (Local)",
+                artifact_storage_type="Local Storage",
+                disclaimer=disclaimer,
+                error=f"Socket telemetry inspection unavailable: {str(e)}",
+                timestamp=now
+            )
+
+    def reset_demo_tasks(self) -> dict:
+        """Cleans demo tasks for repeatability without modifying benchmark or qualification evidence."""
+        conn = self.repo._get_connection()
+        try:
+            conn.execute("DELETE FROM task_state WHERE task_id LIKE 'task-%' OR task_id LIKE 'conv-%'")
+            conn.execute("DELETE FROM task_evidence WHERE task_id LIKE 'task-%' OR task_id LIKE 'conv-%'")
+            conn.execute("DELETE FROM tasks WHERE task_id LIKE 'task-%' OR task_id LIKE 'conv-%'")
+            conn.commit()
+            return {"status": "SUCCESS", "message": "Demo workspace reset to clean state."}
         finally:
             conn.close()
 

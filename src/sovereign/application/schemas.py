@@ -125,6 +125,28 @@ class CodeExecuteResponse(BaseModel):
     security_mode: str
     error: Optional[str] = None
 
+class NetworkConnectionItem(BaseModel):
+    pid: int
+    process: str
+    laddr: str
+    raddr: str
+    status: str
+    is_loopback: bool
+
+class NetworkTelemetryResponse(BaseModel):
+    status: str # "LOCAL_LOOPBACK_ONLY" | "NON_LOOPBACK_OBSERVED" | "UNAVAILABLE"
+    observed_non_loopback_connections: int
+    observed_local_sockets: int
+    monitored_processes_count: int
+    monitored_processes: List[str] = Field(default_factory=list)
+    connections: List[NetworkConnectionItem] = Field(default_factory=list)
+    model_runtime_host: str
+    knowledge_base_type: str
+    artifact_storage_type: str
+    disclaimer: str
+    error: Optional[str] = None
+    timestamp: datetime
+
 
 
 

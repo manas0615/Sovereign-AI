@@ -109,7 +109,7 @@ export function Dashboard() {
             </span>
             <span className="text-xs text-slate-400">qualified contracts</span>
           </div>
-          <p className="text-[11px] text-slate-500 mt-1">Qualification &amp; Authority (P08)</p>
+          <p className="text-[11px] text-slate-500 mt-1">Qualification &amp; Authority</p>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm">
@@ -123,7 +123,7 @@ export function Dashboard() {
             </span>
             <span className="text-xs text-slate-400">persisted tasks</span>
           </div>
-          <p className="text-[11px] text-slate-500 mt-1">Agent Orchestration (P05)</p>
+          <p className="text-[11px] text-slate-500 mt-1">Controlled Orchestration</p>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm">
@@ -137,7 +137,7 @@ export function Dashboard() {
             </span>
             <span className="text-xs text-slate-400">indexed documents</span>
           </div>
-          <p className="text-[11px] text-slate-500 mt-1">Knowledge &amp; OCR (P03)</p>
+          <p className="text-[11px] text-slate-500 mt-1">OCR &amp; SQLite FTS5</p>
         </div>
       </div>
 

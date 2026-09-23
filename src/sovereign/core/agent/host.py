@@ -48,6 +48,14 @@ class AgentHost:
         return task
         
     def _system_prompt(self, capability: str = "") -> str:
+        if capability == "AutomatedCoding_v1":
+            return (
+                "You are operating inside a sovereign local AI system.\n"
+                "You must output exactly one JSON object representing your decision.\n"
+                "For coding tasks, you MUST first execute the code using action: 'TOOL', tool_name: 'execute_python', and arguments: {'code': '<python_code>', 'timeout_seconds': 10.0}.\n"
+                "Write the complete Python function and test prints inside arguments.code.\n"
+                "After the tool returns execution output, you may use action: 'FINAL' and provide your summary.\n"
+            )
         base = (
             "You are operating inside a sovereign local AI system.\n"
             "You must output exactly one JSON object representing your decision.\n"
@@ -55,18 +63,9 @@ class AgentHost:
             "Do not invent evidence or claim tools were used without executing them.\n"
             "If you need facts, use RETRIEVE.\n"
             "If you need numerical calculations, use TOOL with tool_name 'calculate' and arguments {'expression': '<math_expr>', 'variables': {...}}.\n"
+            "If you need file or knowledge capabilities, use TOOL.\n"
+            "If you are finished and the task is verified, use FINAL and provide the 'answer'.\n"
         )
-        if capability == "AutomatedCoding_v1":
-            base += (
-                "For coding tasks, use action: 'TOOL', tool_name: 'execute_python', and arguments: {'code': '<python_code>', 'timeout_seconds': 10.0}.\n"
-                "Your implementation will be independently evaluated by the system's trusted verification test harness.\n"
-                "Do NOT attempt to self-verify with print statements. The system's trusted test harness decides pass or fail.\n"
-                "If verification checks fail, review the feedback, correct the code, and submit again using 'TOOL'.\n"
-            )
-        else:
-            base += "If you need file or knowledge capabilities, use TOOL.\n"
-            
-        base += "If you are finished and the task is verified, use FINAL and provide the 'answer'.\n"
         return base
         
     def run(self, task_id: str) -> Task:
@@ -261,7 +260,7 @@ class AgentHost:
                     tool_result = self.tool_executor.execute(tool_name=decision.tool_name, inputs=decision.arguments or {})
                     
                     # If execute_python was invoked, also perform independent trusted verification
-                    if decision.tool_name == "execute_python":
+                    if decision.tool_name in ["execute_python", "python"]:
                         from sovereign.core.coding.verifier import TrustedCodeVerifier, CodeVerificationStatus
                         from sovereign.infrastructure.tools.execution_boundary import ExecutionBoundary
                         from sovereign.infrastructure.tools.workspace import WorkspaceManager
@@ -269,6 +268,14 @@ class AgentHost:
                         boundary = self.execution_boundary or ExecutionBoundary()
                         ws = self.workspace or WorkspaceManager().get_or_create("default")
                         submitted_code = (decision.arguments or {}).get("code", "")
+                        
+                        # Record exact model-generated code in task state
+                        if submitted_code:
+                            self.repo.add_state_item(task.task_id, Finding(
+                                statement=f"Generated Python Code:\n```python\n{submitted_code}\n```",
+                                confidence="high",
+                                evidence_refs=[]
+                            ))
                         
                         v_report = TrustedCodeVerifier.verify_submission(
                             code=submitted_code,
