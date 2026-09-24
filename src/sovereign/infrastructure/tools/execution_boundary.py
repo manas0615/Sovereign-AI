@@ -69,8 +69,25 @@ class ExecutionBoundary:
 
         # Write code to a temporary execution script in the dedicated workspace
         script_path = workspace.resolve_safe_path("__task_exec__.py")
+        normalized_code = code
+        if isinstance(code, str):
+            normalized_code = normalized_code.replace('\\"', '"').replace("\\'", "'")
+            if "\n" not in normalized_code and "\\n" in normalized_code:
+                normalized_code = normalized_code.replace("\\n", "\n").replace("\\t", "\t")
+            # Repair unclosed single line quotes
+            lines = normalized_code.split("\n")
+            fixed_lines = []
+            for line in lines:
+                stripped = line.rstrip()
+                if stripped.count('"""') % 2 == 0 and stripped.count("'''") % 2 == 0:
+                    if stripped.count('"') % 2 == 1:
+                        line = line + '"'
+                    elif stripped.count("'") % 2 == 1:
+                        line = line + "'"
+                fixed_lines.append(line)
+            normalized_code = "\n".join(fixed_lines)
         with open(script_path, "w", encoding="utf-8") as f:
-            f.write(code)
+            f.write(normalized_code)
 
         start_time = time.time()
         env = self._sanitize_environment()

@@ -52,9 +52,13 @@ class AgentHost:
             return (
                 "You are operating inside a sovereign local AI system.\n"
                 "You must output exactly one JSON object representing your decision.\n"
-                "For coding tasks, you MUST first execute the code using action: 'TOOL', tool_name: 'execute_python', and arguments: {'code': '<python_code>', 'timeout_seconds': 10.0}.\n"
-                "Write the complete Python function and test prints inside arguments.code.\n"
-                "After the tool returns execution output, you may use action: 'FINAL' and provide your summary.\n"
+                "Coding Task Workflow:\n"
+                "1. If code has not been executed yet, you MUST use action: 'TOOL', tool_name: 'execute_python', and arguments: {'code': '<python_code>', 'timeout_seconds': 10.0}.\n"
+                "   Formatting rules for arguments.code:\n"
+                "   - Write complete, self-contained, executable Python code with no placeholders or missing syntax.\n"
+                "   - Include the complete function implementation and test cases with print statements demonstrating behavior.\n"
+                "   - Use single quotes (') for all string literals and regexes in Python code (e.g. pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$') so they do not break JSON formatting.\n"
+                "2. If tool execution results are already present in Current State, you MUST output action: 'FINAL' and provide your concise summary in 'answer'. Do not call the tool again.\n"
             )
         base = (
             "You are operating inside a sovereign local AI system.\n"
@@ -142,7 +146,8 @@ class AgentHost:
             try:
                 from sovereign.core.runtime.models import InferenceRequest
                 from sovereign.core.agent.models import AGENT_DECISION_RESPONSE_FORMAT
-                request = InferenceRequest(prompt=prompt, response_format=AGENT_DECISION_RESPONSE_FORMAT, max_tokens=768, temperature=0.2)
+                resp_format = {"type": "json_object"} if capability == "AutomatedCoding_v1" else AGENT_DECISION_RESPONSE_FORMAT
+                request = InferenceRequest(prompt=prompt, response_format=resp_format, max_tokens=1536, temperature=0.2)
                 response = self.model.generate(request)
                 raw_response = response.text
 
@@ -159,7 +164,7 @@ class AgentHost:
             except ValueError as e:
                 # Malformed output -> structured failure, no automatic retry loops in MVP
                 task.status = TaskStatus.FAILED
-                self.repo.add_state_item(task.task_id, Decision(rationale=f"Malformed model output: {e}", decision="FAIL"))
+                self.repo.add_state_item(task.task_id, Decision(rationale=f"Malformed model output: {e} | RAW: {raw_response[:500]}", decision="FAIL"))
                 self.repo.update_task(task)
                 self.repo.create_checkpoint(Checkpoint(task_id=task.task_id, description="FAILED_MALFORMED_OUTPUT"))
                 return task
@@ -269,12 +274,13 @@ class AgentHost:
                         ws = self.workspace or WorkspaceManager().get_or_create("default")
                         submitted_code = (decision.arguments or {}).get("code", "")
                         
-                        # Record exact model-generated code in task state
+                        # Record exact model-generated code in task state with structured metadata
                         if submitted_code:
                             self.repo.add_state_item(task.task_id, Finding(
                                 statement=f"Generated Python Code:\n```python\n{submitted_code}\n```",
                                 confidence="high",
-                                evidence_refs=[]
+                                evidence_refs=[],
+                                metadata={"code": submitted_code}
                             ))
                         
                         v_report = TrustedCodeVerifier.verify_submission(
@@ -284,12 +290,18 @@ class AgentHost:
                             boundary=boundary
                         )
                         
-                        # Add execution result statement
+                        # Add execution result statement with structured metadata
+                        exec_output = tool_result.output if isinstance(tool_result.output, dict) else {"raw": str(tool_result.output)}
                         if tool_result.success:
-                            exec_msg = f"Tool 'execute_python' returned: {tool_result.output}"
+                            exec_msg = f"Tool 'execute_python' returned: {json.dumps(exec_output)}"
                         else:
-                            exec_msg = f"Tool 'execute_python' failed: {tool_result.error}"
-                        self.repo.add_state_item(task.task_id, Finding(statement=exec_msg, confidence="high", evidence_refs=[]))
+                            exec_msg = f"Tool 'execute_python' failed: {tool_result.error or json.dumps(exec_output)}"
+                        self.repo.add_state_item(task.task_id, Finding(
+                            statement=exec_msg, 
+                            confidence="high", 
+                            evidence_refs=[],
+                            metadata={"execution_result": exec_output}
+                        ))
                         
                         # Add trusted verification finding
                         v_msg = f"Trusted Verification Result: [{v_report.status.value}] Passed {v_report.passed_checks}/{v_report.total_checks} checks. {v_report.failure_reason or ''}".strip()

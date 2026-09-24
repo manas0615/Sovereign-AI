@@ -67,7 +67,15 @@ class TaskCharacterizer:
             )
             
         # 2. Map to automated coding capability
-        if any(kw in goal_lower for kw in ["write a python function", "write python code", "generate python", "code a python script", "python script"]):
+        coding_keywords = [
+            "python function", "python script", "python code", "write python", "generate python",
+            "create a python", "code a python", "implement a python", "develop a python",
+            "python program", "python algorithm", "python snippet", "def ", "class ",
+            "is_valid_email", "email validator", "corrosion rate", "asme b31.3",
+            "write a function", "create a function", "implement a function", "code a function",
+            "write a script", "create a script", "execute python", "run python", "validate email"
+        ]
+        if any(kw in goal_lower for kw in coding_keywords):
             return TaskCapabilityRequirement(
                 capability_name="AutomatedCoding_v1",
                 rationale="Task requires writing and executing Python code via restricted subprocess tool",

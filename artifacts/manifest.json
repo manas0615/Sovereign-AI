@@ -2603,5 +2603,253 @@
       ],
       "content_hash": "c7394a267071e9e04a0edae85225b6b97657b1bfad1b1e398f7e965ec2699333"
     }
+  },
+  "art-6c2fb543": {
+    "artifact_id": "art-6c2fb543",
+    "task_id": "task-8857953b",
+    "title": "Task Report - Executive Approval Note for V-204 Inspection",
+    "type": "MARKDOWN",
+    "status": "COMPLETED",
+    "created_at": "2026-09-24T10:51:34.399928Z",
+    "updated_at": "2026-09-24T10:51:34.399928Z",
+    "source_references": [
+      {
+        "source_id": "doc-3ec4fc95",
+        "locator": "document:demo_scanned_v204_report.pdf",
+        "metadata": {
+          "filename": "demo_scanned_v204_report.pdf",
+          "document_type": "pdf",
+          "content_hash": "7cc391184542763894a4dd7ee7a05ea777459599619ea860322bd853cd400eb1"
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-8857953b_art-6c2fb543.md",
+      "size_bytes": 881,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence"
+      ],
+      "content_hash": "fc83a206114687f8ee41edb9662be16c4dc4d1d486e02249f1486dcaf5be5207"
+    }
+  },
+  "art-148d6f9f": {
+    "artifact_id": "art-148d6f9f",
+    "task_id": "task-8857953b",
+    "title": "Approval Note - Executive Approval Note for V-204 Inspection",
+    "type": "DOCX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-24T10:51:35.854035Z",
+    "updated_at": "2026-09-24T10:51:35.854035Z",
+    "source_references": [
+      {
+        "source_id": "doc-3ec4fc95",
+        "locator": "document:demo_scanned_v204_report.pdf",
+        "metadata": {
+          "filename": "demo_scanned_v204_report.pdf",
+          "document_type": "pdf",
+          "content_hash": "7cc391184542763894a4dd7ee7a05ea777459599619ea860322bd853cd400eb1"
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-8857953b_art-148d6f9f.docx",
+      "size_bytes": 37804,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "limitations"
+      ],
+      "content_hash": "9334cfad6708c86c27eaad0c716378334d3ce261735ebcb7a8fa0e19bb528a61"
+    }
+  },
+  "art-987e7e03": {
+    "artifact_id": "art-987e7e03",
+    "task_id": "task-8857953b",
+    "title": "Industrial Data Sheet - Executive Approval Note for V-204 Inspection",
+    "type": "XLSX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-24T10:51:36.366618Z",
+    "updated_at": "2026-09-24T10:51:36.366618Z",
+    "source_references": [
+      {
+        "source_id": "doc-3ec4fc95",
+        "locator": "document:demo_scanned_v204_report.pdf",
+        "metadata": {
+          "filename": "demo_scanned_v204_report.pdf",
+          "document_type": "pdf",
+          "content_hash": "7cc391184542763894a4dd7ee7a05ea777459599619ea860322bd853cd400eb1"
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-8857953b_art-987e7e03.xlsx",
+      "size_bytes": 7555,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "decisions"
+      ],
+      "content_hash": "9563654d276be964e39e95b20692c09131b8a9a32977ed390bf6d81afba73022"
+    }
+  },
+  "art-421acf2c": {
+    "artifact_id": "art-421acf2c",
+    "task_id": "task-8857953b",
+    "title": "Executive Briefing - Executive Approval Note for V-204 Inspection",
+    "type": "PPTX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-24T10:51:36.990309Z",
+    "updated_at": "2026-09-24T10:51:36.990309Z",
+    "source_references": [
+      {
+        "source_id": "doc-3ec4fc95",
+        "locator": "document:demo_scanned_v204_report.pdf",
+        "metadata": {
+          "filename": "demo_scanned_v204_report.pdf",
+          "document_type": "pdf",
+          "content_hash": "7cc391184542763894a4dd7ee7a05ea777459599619ea860322bd853cd400eb1"
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-8857953b_art-421acf2c.pptx",
+      "size_bytes": 32696,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "decisions",
+        "limitations"
+      ],
+      "content_hash": "2eecab3bfbbc52c4eda4901af07f3ad53843d14efa7b5a6e0b747fa720913012"
+    }
+  },
+  "art-71e914c5": {
+    "artifact_id": "art-71e914c5",
+    "task_id": "task-db7fe96e",
+    "title": "Task Report - Executive Approval Note for V-204 Inspection",
+    "type": "MARKDOWN",
+    "status": "COMPLETED",
+    "created_at": "2026-09-24T11:00:10.581937Z",
+    "updated_at": "2026-09-24T11:00:10.581937Z",
+    "source_references": [
+      {
+        "source_id": "doc-3ec4fc95",
+        "locator": "document:demo_scanned_v204_report.pdf",
+        "metadata": {
+          "filename": "demo_scanned_v204_report.pdf",
+          "document_type": "pdf",
+          "content_hash": "7cc391184542763894a4dd7ee7a05ea777459599619ea860322bd853cd400eb1"
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-db7fe96e_art-71e914c5.md",
+      "size_bytes": 665,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence"
+      ],
+      "content_hash": "a9d9b756d5fc1744ad37dae488ace7277dcc6d1fc6af1dc336faca64acc774f6"
+    }
+  },
+  "art-b39fbe79": {
+    "artifact_id": "art-b39fbe79",
+    "task_id": "task-db7fe96e",
+    "title": "Approval Note - Executive Approval Note for V-204 Inspection",
+    "type": "DOCX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-24T11:00:10.880823Z",
+    "updated_at": "2026-09-24T11:00:10.881363Z",
+    "source_references": [
+      {
+        "source_id": "doc-3ec4fc95",
+        "locator": "document:demo_scanned_v204_report.pdf",
+        "metadata": {
+          "filename": "demo_scanned_v204_report.pdf",
+          "document_type": "pdf",
+          "content_hash": "7cc391184542763894a4dd7ee7a05ea777459599619ea860322bd853cd400eb1"
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-db7fe96e_art-b39fbe79.docx",
+      "size_bytes": 37745,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "limitations"
+      ],
+      "content_hash": "57e097165ff0775569c054db84a8eda0c7f625804cc7d8e49fa915f34b27e40f"
+    }
+  },
+  "art-ec9e6e95": {
+    "artifact_id": "art-ec9e6e95",
+    "task_id": "task-db7fe96e",
+    "title": "Industrial Data Sheet - Executive Approval Note for V-204 Inspection",
+    "type": "XLSX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-24T11:00:11.102229Z",
+    "updated_at": "2026-09-24T11:00:11.102229Z",
+    "source_references": [
+      {
+        "source_id": "doc-3ec4fc95",
+        "locator": "document:demo_scanned_v204_report.pdf",
+        "metadata": {
+          "filename": "demo_scanned_v204_report.pdf",
+          "document_type": "pdf",
+          "content_hash": "7cc391184542763894a4dd7ee7a05ea777459599619ea860322bd853cd400eb1"
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-db7fe96e_art-ec9e6e95.xlsx",
+      "size_bytes": 7511,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "decisions"
+      ],
+      "content_hash": "fb751f04bff5e66377fb553fbaa24a321ab5c2a8d1c55d8711518cb86bd23642"
+    }
+  },
+  "art-029a6d79": {
+    "artifact_id": "art-029a6d79",
+    "task_id": "task-db7fe96e",
+    "title": "Executive Briefing - Executive Approval Note for V-204 Inspection",
+    "type": "PPTX",
+    "status": "COMPLETED",
+    "created_at": "2026-09-24T11:00:11.332956Z",
+    "updated_at": "2026-09-24T11:00:11.332956Z",
+    "source_references": [
+      {
+        "source_id": "doc-3ec4fc95",
+        "locator": "document:demo_scanned_v204_report.pdf",
+        "metadata": {
+          "filename": "demo_scanned_v204_report.pdf",
+          "document_type": "pdf",
+          "content_hash": "7cc391184542763894a4dd7ee7a05ea777459599619ea860322bd853cd400eb1"
+        }
+      }
+    ],
+    "metadata": {
+      "file_path": "C:\\Users\\Dell\\Desktop\\Sovereign AI\\artifacts\\task-db7fe96e_art-029a6d79.pptx",
+      "size_bytes": 32577,
+      "sections_rendered": [
+        "executive_summary",
+        "findings",
+        "evidence",
+        "decisions",
+        "limitations"
+      ],
+      "content_hash": "2df5d72de2769eff4f4547cb7f2a8fc32e29f0acf030069423ed85e759871015"
+    }
   }
 }

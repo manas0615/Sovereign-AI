@@ -87,42 +87,32 @@ export function CodingStudio() {
     const findings = aiState.filter(s => s.type === 'Finding' || s.item_type === 'finding');
     const decisions = aiState.filter(s => s.type === 'Decision' || s.item_type === 'decision');
     
-    // Check for Generated Python Code in findings
-    const codeFinding = findings.find(s => s.statement?.includes("Generated Python Code:"));
+    // 1. Primary: Extract Generated Python Code from dedicated Finding (prefer latest)
+    const codeFindings = findings.filter(s => 
+      s.metadata?.code || s.statement?.includes("Generated Python Code:")
+    );
+    const codeFinding = codeFindings.length > 0 ? codeFindings[codeFindings.length - 1] : null;
     if (codeFinding) {
       codeGenerated = true;
-      const match = codeFinding.statement.match(/```(?:python)?\s*([\s\S]*?)\s*```/);
-      if (match) {
-        generatedPythonCode = match[1].trim();
+      if (codeFinding.metadata?.code) {
+        generatedPythonCode = codeFinding.metadata.code.trim();
       } else {
-        generatedPythonCode = codeFinding.statement.replace("Generated Python Code:", "").trim();
+        const match = codeFinding.statement?.match(/```(?:python)?\s*([\s\S]*?)\s*```/);
+        if (match) {
+          generatedPythonCode = match[1].trim();
+        } else {
+          generatedPythonCode = codeFinding.statement?.replace("Generated Python Code:", "").trim() || "";
+        }
       }
     }
 
-    // Fallback 1: search in findings for Python function statements
+    // Fallback: search in findings for explicit Python markdown block
     if (!generatedPythonCode) {
       for (const f of findings) {
         const text = f.statement || "";
-        if (text.includes("def is_valid_email") || (text.includes("def ") && text.includes("return "))) {
-          generatedPythonCode = text.trim();
-          codeGenerated = true;
-          break;
-        }
-      }
-    }
-
-    // Fallback 2: search in decisions for code if model passed it in arguments
-    if (!generatedPythonCode) {
-      for (const d of decisions) {
-        const text = d.rationale || d.statement || "";
-        const m = text.match(/```(?:python)?\s*([\s\S]*?)\s*```/);
+        const m = text.match(/```(?:python)?\s*\n([\s\S]*?)\s*```/);
         if (m) {
           generatedPythonCode = m[1].trim();
-          codeGenerated = true;
-          break;
-        }
-        if (text.includes("def is_valid_email") || (text.includes("def ") && text.includes("return "))) {
-          generatedPythonCode = text.trim();
           codeGenerated = true;
           break;
         }
@@ -133,35 +123,52 @@ export function CodingStudio() {
       codeGenerated = true;
     }
 
+    // 2. Primary: Extract Execution Telemetry from Tool Findings
     const toolExecResults = findings.filter(s => 
+      s.metadata?.execution_result ||
       s.statement?.includes("Tool 'execute_python' returned") || 
       s.statement?.includes("Tool 'execute_python' failed")
     );
     executionCount = toolExecResults.length;
     if (executionCount > 0) {
       codeExecuted = true;
-      rawExecutionStatement = toolExecResults[toolExecResults.length - 1].statement;
+      const latestExecFinding = toolExecResults[toolExecResults.length - 1];
+      rawExecutionStatement = latestExecFinding.statement || "";
 
-      // Extract stdout, stderr, exit_code, duration_ms
-      const stdoutMatch = rawExecutionStatement.match(/'stdout':\s*(?:'([^']*)'|"([^"]*)")/);
-      if (stdoutMatch) {
-        parsedStdout = (stdoutMatch[1] || stdoutMatch[2] || "").replace(/\\n/g, '\n');
-      }
-      const stderrMatch = rawExecutionStatement.match(/'stderr':\s*(?:'([^']*)'|"([^"]*)")/);
-      if (stderrMatch) {
-        parsedStderr = (stderrMatch[1] || stderrMatch[2] || "").replace(/\\n/g, '\n');
-      }
-      const exitCodeMatch = rawExecutionStatement.match(/'exit_code':\s*(\d+)/);
-      if (exitCodeMatch) {
-        parsedExitCode = parseInt(exitCodeMatch[1], 10);
-      }
-      const durationMatch = rawExecutionStatement.match(/'duration_ms':\s*(\d+)/);
-      if (durationMatch) {
-        parsedDurationMs = parseInt(durationMatch[1], 10);
-      }
-      const secModeMatch = rawExecutionStatement.match(/'security_mode':\s*'([^']*)'/);
-      if (secModeMatch) {
-        parsedSecurityMode = secModeMatch[1];
+      if (latestExecFinding.metadata?.execution_result) {
+        const res = latestExecFinding.metadata.execution_result;
+        parsedStdout = (res.stdout || "").replace(/\\n/g, '\n');
+        parsedStderr = (res.stderr || "").replace(/\\n/g, '\n');
+        if (typeof res.exit_code === 'number') parsedExitCode = res.exit_code;
+        if (typeof res.duration_ms === 'number') parsedDurationMs = res.duration_ms;
+        if (res.security_mode) parsedSecurityMode = res.security_mode;
+      } else {
+        // Parse JSON or regex from statement
+        const jsonMatch = rawExecutionStatement.match(/returned:\s*(\{.*\})/);
+        if (jsonMatch) {
+          try {
+            const parsed = JSON.parse(jsonMatch[1]);
+            parsedStdout = (parsed.stdout || "").replace(/\\n/g, '\n');
+            parsedStderr = (parsed.stderr || "").replace(/\\n/g, '\n');
+            if (typeof parsed.exit_code === 'number') parsedExitCode = parsed.exit_code;
+            if (typeof parsed.duration_ms === 'number') parsedDurationMs = parsed.duration_ms;
+            if (parsed.security_mode) parsedSecurityMode = parsed.security_mode;
+          } catch {
+            // Regex fallback
+          }
+        }
+        if (parsedExitCode === null) {
+          const stdoutMatch = rawExecutionStatement.match(/'stdout':\s*(?:'([^']*)'|"([^"]*)")/);
+          if (stdoutMatch) parsedStdout = (stdoutMatch[1] || stdoutMatch[2] || "").replace(/\\n/g, '\n');
+          const stderrMatch = rawExecutionStatement.match(/'stderr':\s*(?:'([^']*)'|"([^"]*)")/);
+          if (stderrMatch) parsedStderr = (stderrMatch[1] || stderrMatch[2] || "").replace(/\\n/g, '\n');
+          const exitCodeMatch = rawExecutionStatement.match(/'exit_code':\s*(\d+)/);
+          if (exitCodeMatch) parsedExitCode = parseInt(exitCodeMatch[1], 10);
+          const durationMatch = rawExecutionStatement.match(/'duration_ms':\s*(\d+)/);
+          if (durationMatch) parsedDurationMs = parseInt(durationMatch[1], 10);
+          const secModeMatch = rawExecutionStatement.match(/'security_mode':\s*'([^']*)'/);
+          if (secModeMatch) parsedSecurityMode = secModeMatch[1];
+        }
       }
     }
 
