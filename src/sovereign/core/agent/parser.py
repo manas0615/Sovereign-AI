@@ -33,76 +33,87 @@ class ModelOutputParser:
                 return f': {escaped}'
             return re.sub(r':\s*"""([\s\S]*?)"""', repl, s)
 
+        def _sanitize_escapes(s: str) -> str:
+            return re.sub(r'\\(?![/"\\bfnrtu]|u[0-9a-fA-F]{4})', r'\\\\', s)
+
         text = _sanitize_triple_quotes(text)
 
         data = None
         try:
             data = json.loads(text, strict=False)
         except json.JSONDecodeError:
-            # Attempt string newline escaping
-            def _escape_string_newlines(s_input: str) -> str:
-                result = []
-                in_string = False
-                escape = False
-                for char in s_input:
-                    if char == '"' and not escape:
-                        in_string = not in_string
-                        result.append(char)
-                    elif in_string:
-                        if char == '\n':
-                            result.append('\\n')
-                        elif char == '\r':
-                            result.append('\\r')
-                        elif char == '\t':
-                            result.append('\\t')
+            try:
+                # 1. Sanitize invalid regex escapes (e.g. \., \w, \s)
+                escaped_text = _sanitize_escapes(text)
+                data = json.loads(escaped_text, strict=False)
+            except Exception:
+                pass
+
+            if data is None:
+                # 2. Attempt string newline escaping on sanitized escapes
+                def _escape_string_newlines(s_input: str) -> str:
+                    result = []
+                    in_string = False
+                    escape = False
+                    for char in s_input:
+                        if char == '"' and not escape:
+                            in_string = not in_string
+                            result.append(char)
+                        elif in_string:
+                            if char == '\n':
+                                result.append('\\n')
+                            elif char == '\r':
+                                result.append('\\r')
+                            elif char == '\t':
+                                result.append('\\t')
+                            else:
+                                result.append(char)
                         else:
                             result.append(char)
-                    else:
-                        result.append(char)
-                    if char == '\\' and not escape:
-                        escape = True
-                    else:
-                        escape = False
-                return "".join(result)
-
-            try:
-                sanitized = _escape_string_newlines(text)
-                data = json.loads(sanitized, strict=False)
-            except Exception:
-                # Attempt code block repair
-                start_idx = text.find('"code"')
-                if start_idx != -1:
-                    val_start = text.find(':', start_idx) + 1
-                    while val_start < len(text) and text[val_start] in ' \t\r\n':
-                        val_start += 1
-                    if val_start < len(text) and text[val_start] in ('"', "'"):
-                        quote_char = text[val_start]
-                        val_start += 1
-                        if text[val_start:val_start+2] == quote_char * 2:
-                            val_start += 2
-                        
-                        next_prop_match = re.search(r',\s*"[a-zA-Z0-9_]+"\s*:', text[val_start:])
-                        close_brace_match = re.search(r'\s*\}', text[val_start:])
-                        
-                        if next_prop_match:
-                            end_pos = val_start + next_prop_match.start()
-                        elif close_brace_match:
-                            end_pos = val_start + close_brace_match.start()
+                        if char == '\\' and not escape:
+                            escape = True
                         else:
-                            end_pos = None
+                            escape = False
+                    return "".join(result)
 
-                        if end_pos is not None:
-                            code_content = text[val_start:end_pos].rstrip(' \t\r\n')
-                            if code_content.endswith('"""') or code_content.endswith("'''"):
-                                code_content = code_content[:-3]
-                            elif code_content.endswith('"') or code_content.endswith("'"):
-                                code_content = code_content[:-1]
-                            escaped_code = json.dumps(code_content.strip())
-                            repaired = text[:text.find(':', start_idx) + 1] + " " + escaped_code + text[end_pos:]
-                            try:
-                                data = json.loads(repaired, strict=False)
-                            except Exception:
-                                pass
+                try:
+                    sanitized = _escape_string_newlines(_sanitize_escapes(text))
+                    data = json.loads(sanitized, strict=False)
+                except Exception:
+                    # 3. Attempt code block repair
+                    start_idx = text.find('"code"')
+                    if start_idx != -1:
+                        val_start = text.find(':', start_idx) + 1
+                        while val_start < len(text) and text[val_start] in ' \t\r\n':
+                            val_start += 1
+                        if val_start < len(text) and text[val_start] in ('"', "'"):
+                            quote_char = text[val_start]
+                            val_start += 1
+                            if text[val_start:val_start+2] == quote_char * 2:
+                                val_start += 2
+                            
+                            next_prop_match = re.search(r',\s*"[a-zA-Z0-9_]+"\s*:', text[val_start:])
+                            close_brace_match = re.search(r'\s*\}', text[val_start:])
+                            
+                            if next_prop_match:
+                                end_pos = val_start + next_prop_match.start()
+                            elif close_brace_match:
+                                end_pos = val_start + close_brace_match.start()
+                            else:
+                                end_pos = None
+
+                            if end_pos is not None:
+                                code_content = text[val_start:end_pos].rstrip(' \t\r\n')
+                                if code_content.endswith('"""') or code_content.endswith("'''"):
+                                    code_content = code_content[:-3]
+                                elif code_content.endswith('"') or code_content.endswith("'"):
+                                    code_content = code_content[:-1]
+                                escaped_code = json.dumps(code_content.strip())
+                                repaired = text[:text.find(':', start_idx) + 1] + " " + escaped_code + text[end_pos:]
+                                try:
+                                    data = json.loads(_sanitize_escapes(repaired), strict=False)
+                                except Exception:
+                                    pass
             
         if data is None:
             try:
